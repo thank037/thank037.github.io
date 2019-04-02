@@ -8,18 +8,18 @@
 
 
     
-    <meta name="description" content="工作中遇到了, 简单记录下SVN中的分支管理  SVN的标准目录结构：欲了解详细，请参照：http://www.cnmiss.cn/?p=296">
+    <meta name="description" content="工作中遇到了, 简单记录下SVN中的分支管理">
 <meta name="keywords" content="工具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SVN分支管理">
 <meta property="og:url" content="https://xiefayang.com/2017/12/22/SVN分支管理/index.html">
 <meta property="og:site_name" content="i蝸居年華_谢谢谢_CODE_HOME">
-<meta property="og:description" content="工作中遇到了, 简单记录下SVN中的分支管理  SVN的标准目录结构：欲了解详细，请参照：http://www.cnmiss.cn/?p=296">
+<meta property="og:description" content="工作中遇到了, 简单记录下SVN中的分支管理">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-01T05:45:45.255Z">
+<meta property="og:updated_time" content="2019-04-02T03:56:03.896Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVN分支管理">
-<meta name="twitter:description" content="工作中遇到了, 简单记录下SVN中的分支管理  SVN的标准目录结构：欲了解详细，请参照：http://www.cnmiss.cn/?p=296">
+<meta name="twitter:description" content="工作中遇到了, 简单记录下SVN中的分支管理">
 
 
 
@@ -197,7 +197,6 @@ var _hmt = _hmt || [];
                 </span>
                 
 
-                <!--if (!index && (has_config('plugins.busuanzi') ? get_config('plugins.busuanzi') : false)) { -->
                 
                 <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
                     <i class="far fa-eye"></i>
@@ -212,12 +211,16 @@ var _hmt = _hmt || [];
                 SVN分支管理
             
         </h1>
+
         <div class="content">
-            <p>工作中遇到了, 简单记录下SVN中的分支管理</p>
+
+            <!--update by thank: 控制首页摘要信息不显示样式(去掉Markdown生成的html标签)-->
+            
+                <p>工作中遇到了, 简单记录下SVN中的分支管理 </p>
+<a id="more"></a>
 <blockquote>
 <p>SVN的标准目录结构：欲了解详细，请参照：<a href="http://www.cnmiss.cn/?p=296" target="_blank" rel="noopener">http://www.cnmiss.cn/?p=296</a></p>
 </blockquote>
-<a id="more"></a>
 <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>先来了解几个基本概念: </p>
 <ul>
 <li><strong>Trunk(主干库)</strong>：存放核心项目</li>
@@ -237,6 +240,9 @@ var _hmt = _hmt || [];
 </blockquote>
 <h4 id="合并版本并将合并后的结果应用到现有的分支上"><a href="#合并版本并将合并后的结果应用到现有的分支上" class="headerlink" title="合并版本并将合并后的结果应用到现有的分支上"></a>合并版本并将合并后的结果应用到现有的分支上</h4><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn -r 148:149 merge http://svn_server/xxx_repository/trunk</span><br></pre></td></tr></table></figure>
 
+            
+
+            <!--%- index && post.excerpt ? post.excerpt : post.content %-->
         </div>
 
         
@@ -263,10 +269,7 @@ var _hmt = _hmt || [];
         
         
 
-        
-        <div class="social-share"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
-<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        <!--% if (!index && has_config('share.type')) { %-->
         
     </div>
 </div>
@@ -390,7 +393,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        17
                     </p>
                 </div>
             </div>
@@ -537,8 +540,9 @@ var _hmt = _hmt || [];
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2019 i蝸居年華_谢谢谢&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                &copy; 2016—2019 i蝸居年華_谢谢谢&nbsp;
+                由<a href="http://hexo.io/" target="_blank">Hexo</a> 强力驱动
+                    <!--& <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>-->
                 
                 <br>
                 <span id="busuanzi_container_site_uv">

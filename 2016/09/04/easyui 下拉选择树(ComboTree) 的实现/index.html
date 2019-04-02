@@ -8,21 +8,21 @@
 
 
     
-    <meta name="description" content="前言 很多时候都会用到下拉框,有时候为了显示更好的效果,会用到树型下拉框,实际就是下拉框中带了一个树型的控件,所以它自然继承自tree和combobox. 后台没什么问题, 但是easyui我是真的不会阿">
+    <meta name="description" content="前言 很多时候都会用到下拉框,有时候为了显示更好的效果,会用到树型下拉框,实际就是下拉框中带了一个树型的控件,所以它自然继承自tree和combobox.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="easyui下拉选择树(ComboTree)">
 <meta property="og:url" content="https://xiefayang.com/2016/09/04/easyui 下拉选择树(ComboTree) 的实现/index.html">
 <meta property="og:site_name" content="i蝸居年華_谢谢谢_CODE_HOME">
-<meta property="og:description" content="前言 很多时候都会用到下拉框,有时候为了显示更好的效果,会用到树型下拉框,实际就是下拉框中带了一个树型的控件,所以它自然继承自tree和combobox. 后台没什么问题, 但是easyui我是真的不会阿">
+<meta property="og:description" content="前言 很多时候都会用到下拉框,有时候为了显示更好的效果,会用到树型下拉框,实际就是下拉框中带了一个树型的控件,所以它自然继承自tree和combobox.">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ww1.sinaimg.cn/large/007rAy9hgy1g1n4dutlsuj307s06tt8p.jpg">
 <meta property="og:image" content="https://ww1.sinaimg.cn/large/007rAy9hgy1g1n4eadqzgj309s087wel.jpg">
 <meta property="og:image" content="https://ww1.sinaimg.cn/large/007rAy9hgy1g1n4ekp46gj308w08o74d.jpg">
 <meta property="og:image" content="https://ww1.sinaimg.cn/large/007rAy9hgy1g1n4exzl76j30ec04qq2x.jpg">
-<meta property="og:updated_time" content="2019-04-01T07:59:35.428Z">
+<meta property="og:updated_time" content="2019-04-02T03:54:45.261Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="easyui下拉选择树(ComboTree)">
-<meta name="twitter:description" content="前言 很多时候都会用到下拉框,有时候为了显示更好的效果,会用到树型下拉框,实际就是下拉框中带了一个树型的控件,所以它自然继承自tree和combobox. 后台没什么问题, 但是easyui我是真的不会阿">
+<meta name="twitter:description" content="前言 很多时候都会用到下拉框,有时候为了显示更好的效果,会用到树型下拉框,实际就是下拉框中带了一个树型的控件,所以它自然继承自tree和combobox.">
 <meta name="twitter:image" content="https://ww1.sinaimg.cn/large/007rAy9hgy1g1n4dutlsuj307s06tt8p.jpg">
 
 
@@ -201,7 +201,6 @@ var _hmt = _hmt || [];
                 </span>
                 
 
-                <!--if (!index && (has_config('plugins.busuanzi') ? get_config('plugins.busuanzi') : false)) { -->
                 
                 <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
                     <i class="far fa-eye"></i>
@@ -216,12 +215,15 @@ var _hmt = _hmt || [];
                 easyui下拉选择树(ComboTree)
             
         </h1>
+
         <div class="content">
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
-<p>很多时候都会用到下拉框,有时候为了显示更好的效果,会用到树型下拉框,实际就是下拉框中带了一个树型的控件,所以它自然继承自tree和combobox.</p>
+
+            <!--update by thank: 控制首页摘要信息不显示样式(去掉Markdown生成的html标签)-->
+            
+                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
+<p>很多时候都会用到下拉框,有时候为了显示更好的效果,会用到树型下拉框,实际就是下拉框中带了一个树型的控件,所以它自然继承自tree和combobox.<a id="more"></a></p>
 <p>后台没什么问题, 但是easyui我是真的不会阿</p>
 </blockquote>
-<a id="more"></a>
 <h3 id="一-前台"><a href="#一-前台" class="headerlink" title="一: 前台"></a>一: 前台</h3><p>1 首先从前台来讲, 先把html元素写好</p>
 <figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"cc"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"01"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width:200px;"</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"btn"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"easyui-linkbutton"</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"getValue()"</span>&gt;</span>getValue<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>这里用js加载方式:</p>
@@ -253,6 +255,9 @@ var _hmt = _hmt || [];
 <figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@RequestMapping</span>(value=<span class="hljs-string">"/getSelectData"</span>)</span><br><span class="line"><span class="hljs-meta">@ResponseBody</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;ComboTreeModel&gt; <span class="hljs-title">getTreeData</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response,ComboTreeModel treeModel)</span></span>&#123;</span><br><span class="line">	List classList = <span class="hljs-keyword">this</span>.studentService.queryClassList();</span><br><span class="line">	<span class="hljs-comment">//[&#123;eventid:"c001",classname:'奥赛班',eventid:"c002",classname:'直播班',eventid:"c003",classname:'火箭班'&#125;]</span></span><br><span class="line">	List&lt;ComboTreeModel&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;ComboTreeModel&gt;();</span><br><span class="line">	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; i&lt;classList.size(); i++)&#123;</span><br><span class="line">		ComboTreeModel model = <span class="hljs-keyword">new</span> ComboTreeModel();</span><br><span class="line">		Map classMap = (Map) classList.get(i);</span><br><span class="line">		<span class="hljs-comment">//&#123;eventid:"c001",classname:'奥赛班'&#125;</span></span><br><span class="line">		String classId = (String) classMap.get(<span class="hljs-string">"eventid"</span>);</span><br><span class="line">		String className = (String)classMap.get(<span class="hljs-string">"classname"</span>);</span><br><span class="line">		model.setId(classId); </span><br><span class="line">		model.setText(className);</span><br><span class="line">		List studentList = <span class="hljs-keyword">this</span>.studentService.queryByClassId(classId);</span><br><span class="line">		</span><br><span class="line">		<span class="hljs-keyword">if</span>(studentList.size() &gt; <span class="hljs-number">0</span>)&#123;</span><br><span class="line">			List&lt;ComboTreeModel&gt; childrenList = <span class="hljs-keyword">new</span> ArrayList&lt;ComboTreeModel&gt;();</span><br><span class="line">			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>;j&lt;studentList.size();j++)&#123;</span><br><span class="line">				ComboTreeModel model2 = <span class="hljs-keyword">new</span> ComboTreeModel();</span><br><span class="line">				Map studentMap = (Map)studentList.get(j);</span><br><span class="line">				String studentEventId = (String) studentMap.get(<span class="hljs-string">"eventid"</span>);</span><br><span class="line">				String studentName = (String) studentMap.get(<span class="hljs-string">"studentname"</span>);</span><br><span class="line">				model2.setId(studentEventId);</span><br><span class="line">				model2.setText(studentName);</span><br><span class="line">				childrenList.add(model2);</span><br><span class="line">			&#125;</span><br><span class="line">			model.setChildren(childrenList);</span><br><span class="line">		&#125;</span><br><span class="line">		list.add(model); </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="hljs-keyword">return</span> list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>ResponseBody 会自动返回JSON格式的数据.</p>
 
+            
+
+            <!--%- index && post.excerpt ? post.excerpt : post.content %-->
         </div>
 
         
@@ -270,10 +275,7 @@ var _hmt = _hmt || [];
         
         
 
-        
-        <div class="social-share"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
-<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        <!--% if (!index && has_config('share.type')) { %-->
         
     </div>
 </div>
@@ -397,7 +399,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        17
                     </p>
                 </div>
             </div>
@@ -528,8 +530,9 @@ var _hmt = _hmt || [];
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2019 i蝸居年華_谢谢谢&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                &copy; 2016—2019 i蝸居年華_谢谢谢&nbsp;
+                由<a href="http://hexo.io/" target="_blank">Hexo</a> 强力驱动
+                    <!--& <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>-->
                 
                 <br>
                 <span id="busuanzi_container_site_uv">

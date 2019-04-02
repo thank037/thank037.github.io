@@ -200,7 +200,6 @@ var _hmt = _hmt || [];
                 </span>
                 
 
-                <!--if (!index && (has_config('plugins.busuanzi') ? get_config('plugins.busuanzi') : false)) { -->
                 
                 <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
                     <i class="far fa-eye"></i>
@@ -215,8 +214,12 @@ var _hmt = _hmt || [];
                 润乾报表的使用
             
         </h1>
+
         <div class="content">
-            <p>[TOC]</p>
+
+            <!--update by thank: 控制首页摘要信息不显示样式(去掉Markdown生成的html标签)-->
+            
+                <p>[TOC]</p>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>前段时间项目用到了报表开发, 选择润乾报表来做. 是款纯Java的报表开发工具, 采用设计和集成分离的方式, 开发过程也较为简单.</p>
 <a id="more"></a>
 <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>设计时需要安装一个报表设计器, 设计过程类似于Excel中的表格设计. 而且支持html, excel, pdf等多种展现方式. 支持导出doc, excel, pdf和打印.</p>
@@ -286,6 +289,9 @@ var _hmt = _hmt || [];
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>润乾报表是一个国产收费的报表工具, 工作中遇到了, 承认东西很强</p>
 <p>但是不喜欢, 所以不想做过多研究</p>
 
+            
+
+            <!--%- index && post.excerpt ? post.excerpt : post.content %-->
         </div>
 
         
@@ -303,10 +309,7 @@ var _hmt = _hmt || [];
         
         
 
-        
-        <div class="social-share"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
-<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        <!--% if (!index && has_config('share.type')) { %-->
         
     </div>
 </div>
@@ -430,7 +433,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        17
                     </p>
                 </div>
             </div>
@@ -585,8 +588,9 @@ var _hmt = _hmt || [];
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2019 i蝸居年華_谢谢谢&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                &copy; 2016—2019 i蝸居年華_谢谢谢&nbsp;
+                由<a href="http://hexo.io/" target="_blank">Hexo</a> 强力驱动
+                    <!--& <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>-->
                 
                 <br>
                 <span id="busuanzi_container_site_uv">

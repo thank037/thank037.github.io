@@ -8,22 +8,22 @@
 
 
     
-    <meta name="description" content="序言 在QQ群里突然看到一个叫QQ小冰的机器人, 在群里只要@他 就会出来跟你聊天.可以讲笑话, 查天气等功能, 跟人聊天的语义理解也非常智能. 类似的还有美拍的小冰.于是去找了相关的机器人, 有微软小冰, 茉莉机器人, 图灵机器人等…还有些是收费的. 果断跳过">
+    <meta name="description" content="序言 在QQ群里突然看到一个叫QQ小冰的机器人, 在群里只要@他 就会出来跟你聊天.">
 <meta name="keywords" content="微信开发,智能机器人">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于WEB微信通信实现智能聊天机器人">
 <meta property="og:url" content="https://xiefayang.com/2017/04/10/基于WEB微信通信实现智能聊天机器人/index.html">
 <meta property="og:site_name" content="i蝸居年華_谢谢谢_CODE_HOME">
-<meta property="og:description" content="序言 在QQ群里突然看到一个叫QQ小冰的机器人, 在群里只要@他 就会出来跟你聊天.可以讲笑话, 查天气等功能, 跟人聊天的语义理解也非常智能. 类似的还有美拍的小冰.于是去找了相关的机器人, 有微软小冰, 茉莉机器人, 图灵机器人等…还有些是收费的. 果断跳过">
+<meta property="og:description" content="序言 在QQ群里突然看到一个叫QQ小冰的机器人, 在群里只要@他 就会出来跟你聊天.">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ww1.sinaimg.cn/large/007rAy9hgy1g1n83suoqkj30wv0e9t97.jpg">
 <meta property="og:image" content="https://ww1.sinaimg.cn/large/007rAy9hly1g1n84murhwj30jz0zkabz.jpg">
 <meta property="og:image" content="https://ww1.sinaimg.cn/large/007rAy9hly1g1n857f22nj30jz0zk40c.jpg">
 <meta property="og:image" content="https://ww1.sinaimg.cn/large/007rAy9hly1g1n85pxl7vj30jz0zkgnv.jpg">
-<meta property="og:updated_time" content="2019-04-01T08:44:43.445Z">
+<meta property="og:updated_time" content="2019-04-02T03:54:15.556Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于WEB微信通信实现智能聊天机器人">
-<meta name="twitter:description" content="序言 在QQ群里突然看到一个叫QQ小冰的机器人, 在群里只要@他 就会出来跟你聊天.可以讲笑话, 查天气等功能, 跟人聊天的语义理解也非常智能. 类似的还有美拍的小冰.于是去找了相关的机器人, 有微软小冰, 茉莉机器人, 图灵机器人等…还有些是收费的. 果断跳过">
+<meta name="twitter:description" content="序言 在QQ群里突然看到一个叫QQ小冰的机器人, 在群里只要@他 就会出来跟你聊天.">
 <meta name="twitter:image" content="https://ww1.sinaimg.cn/large/007rAy9hgy1g1n83suoqkj30wv0e9t97.jpg">
 
 
@@ -202,7 +202,6 @@ var _hmt = _hmt || [];
                 </span>
                 
 
-                <!--if (!index && (has_config('plugins.busuanzi') ? get_config('plugins.busuanzi') : false)) { -->
                 
                 <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
                     <i class="far fa-eye"></i>
@@ -217,11 +216,14 @@ var _hmt = _hmt || [];
                 基于WEB微信通信实现智能聊天机器人
             
         </h1>
+
         <div class="content">
-            <h3 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h3><blockquote>
-<p>在QQ群里突然看到一个叫QQ小冰的机器人, 在群里只要@他 就会出来跟你聊天.<br>可以讲笑话, 查天气等功能, 跟人聊天的语义理解也非常智能. 类似的还有美拍的小冰.<br>于是去找了相关的机器人, 有微软小冰, 茉莉机器人, 图灵机器人等…<br>还有些是收费的. 果断跳过</p>
+
+            <!--update by thank: 控制首页摘要信息不显示样式(去掉Markdown生成的html标签)-->
+            
+                <h3 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h3><blockquote>
+<p>在QQ群里突然看到一个叫QQ小冰的机器人, 在群里只要@他 就会出来跟你聊天. <a id="more"></a><br>可以讲笑话, 查天气等功能, 跟人聊天的语义理解也非常智能. 类似的还有美拍的小冰.<br>于是去找了相关的机器人, 有微软小冰, 茉莉机器人, 图灵机器人等…<br>还有些是收费的. 果断跳过</p>
 </blockquote>
-<a id="more"></a>
 <p>我已经放到github上了: <a href="https://github.com/thank037/wechat-robot" target="_blank" rel="noopener">https://github.com/thank037/wechat-robot</a></p>
 <p>关于实现, 发现现有很多机器人都有API, 提供第三方接入.</p>
 <p>当然微信和QQ也支持.</p>
@@ -361,6 +363,9 @@ var _hmt = _hmt || [];
 <p><img src="https://ww1.sinaimg.cn/large/007rAy9hly1g1n857f22nj30jz0zk40c.jpg" alt="这里写图片描述"></p>
 <p><img src="https://ww1.sinaimg.cn/large/007rAy9hly1g1n85pxl7vj30jz0zkgnv.jpg" alt="这里写图片描述"></p>
 
+            
+
+            <!--%- index && post.excerpt ? post.excerpt : post.content %-->
         </div>
 
         
@@ -387,10 +392,7 @@ var _hmt = _hmt || [];
         
         
 
-        
-        <div class="social-share"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
-<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        <!--% if (!index && has_config('share.type')) { %-->
         
     </div>
 </div>
@@ -514,7 +516,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        17
                     </p>
                 </div>
             </div>
@@ -685,8 +687,9 @@ var _hmt = _hmt || [];
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2019 i蝸居年華_谢谢谢&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                &copy; 2016—2019 i蝸居年華_谢谢谢&nbsp;
+                由<a href="http://hexo.io/" target="_blank">Hexo</a> 强力驱动
+                    <!--& <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>-->
                 
                 <br>
                 <span id="busuanzi_container_site_uv">

@@ -202,12 +202,6 @@ var _hmt = _hmt || [];
                 </span>
                 
 
-                <!--if (!index && (has_config('plugins.busuanzi') ? get_config('plugins.busuanzi') : false)) { -->
-                
-                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
-                    <i class="far fa-eye"></i>
-                    <span id="busuanzi_value_page_pv">0</span>次访问
-                </span>
                 
             </div>
         </div>
@@ -217,10 +211,16 @@ var _hmt = _hmt || [];
                 <a class="has-link-black-ter" href="/2016/12/31/docker初探/">Docker初探</a>
             
         </h1>
+
         <div class="content">
-            <p>[TOC]</p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>学习环境是本地虚拟机, linux版本使用CentOS 7.</p>
-<p>由于使用最小安装方式, 在学习Docker之前, 顺带总结了下jdk安装和防火墙相关配置.<br></p>
+
+            <!--update by thank: 控制首页摘要信息不显示样式(去掉Markdown生成的html标签)-->
+            
+                
+<p>学习环境是本地虚拟机, linux版本使用CentOS 7.</p>
+            
+
+            <!--%- index && post.excerpt ? post.excerpt : post.content %-->
         </div>
 
         
@@ -231,12 +231,17 @@ var _hmt = _hmt || [];
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2016/12/31/docker初探/#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/2016/12/31/docker初探/#more">阅读更多...</a>
                 </div>
             </div>
         </div>
         
 
+        <!--% if (!index && has_config('share.type')) { %-->
+        
+        <div class="social-share"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
         
     </div>
 </div>
@@ -301,7 +306,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        17
                     </p>
                 </div>
             </div>
@@ -484,7 +489,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Linux</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">3</span>
+                <span class="level-item tag">4</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Python/">
@@ -514,14 +519,6 @@ var _hmt = _hmt || [];
         <a class="level is-marginless" href="/categories/activiti/">
             <span class="level-start">
                 <span class="level-item">activiti</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/shell/">
-            <span class="level-start">
-                <span class="level-item">shell</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
@@ -686,7 +683,7 @@ var _hmt = _hmt || [];
             
             <a href="/2018/01/01/Elasticsearch初探/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/thumbnails/elasticsearch.jpg" alt="Elasticsearch初探">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Elasticsearch初探">
                 </p>
             </a>
             
@@ -1026,7 +1023,7 @@ var _hmt = _hmt || [];
             
             <a href="/2018/01/01/Elasticsearch初探/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/thumbnails/elasticsearch.jpg" alt="Elasticsearch初探">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Elasticsearch初探">
                 </p>
             </a>
             
@@ -1303,8 +1300,9 @@ var _hmt = _hmt || [];
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2019 i蝸居年華_谢谢谢&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                &copy; 2016—2019 i蝸居年華_谢谢谢&nbsp;
+                由<a href="http://hexo.io/" target="_blank">Hexo</a> 强力驱动
+                    <!--& <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>-->
                 
                 <br>
                 <span id="busuanzi_container_site_uv">

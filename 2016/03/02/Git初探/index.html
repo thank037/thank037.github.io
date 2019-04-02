@@ -8,13 +8,13 @@
 
 
     
-    <meta name="description" content="[TOC] 前言早就听说了GitHub的强大. 一直没有机会去看, 在公司实习的几个月里也没机会接触SVN和Git, 抱着对Linus大神的崇敬, 和开源的崇敬之情. 趁着不忙的几天来学习一下Git. 希望以后能够用到.">
+    <meta name="description" content="[TOC] 前言早就听说了GitHub的强大. 一直没有机会去看, 在公司实习的几个月里也没机会接触SVN和Git">
 <meta name="keywords" content="工具,Git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git初探">
 <meta property="og:url" content="https://xiefayang.com/2016/03/02/Git初探/index.html">
 <meta property="og:site_name" content="i蝸居年華_谢谢谢_CODE_HOME">
-<meta property="og:description" content="[TOC] 前言早就听说了GitHub的强大. 一直没有机会去看, 在公司实习的几个月里也没机会接触SVN和Git, 抱着对Linus大神的崇敬, 和开源的崇敬之情. 趁着不忙的几天来学习一下Git. 希望以后能够用到.">
+<meta property="og:description" content="[TOC] 前言早就听说了GitHub的强大. 一直没有机会去看, 在公司实习的几个月里也没机会接触SVN和Git">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://img.blog.csdn.net/20160325191910795?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
 <meta property="og:image" content="http://img.blog.csdn.net/20160325192627422?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
@@ -51,10 +51,10 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20160325193540972?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
 <meta property="og:image" content="http://img.blog.csdn.net/20160325193550787?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
 <meta property="og:image" content="http://img.blog.csdn.net/20160325193602613?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
-<meta property="og:updated_time" content="2019-04-01T10:02:37.257Z">
+<meta property="og:updated_time" content="2019-04-02T03:53:25.817Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git初探">
-<meta name="twitter:description" content="[TOC] 前言早就听说了GitHub的强大. 一直没有机会去看, 在公司实习的几个月里也没机会接触SVN和Git, 抱着对Linus大神的崇敬, 和开源的崇敬之情. 趁着不忙的几天来学习一下Git. 希望以后能够用到.">
+<meta name="twitter:description" content="[TOC] 前言早就听说了GitHub的强大. 一直没有机会去看, 在公司实习的几个月里也没机会接触SVN和Git">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20160325191910795?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
 
 
@@ -233,7 +233,6 @@ var _hmt = _hmt || [];
                 </span>
                 
 
-                <!--if (!index && (has_config('plugins.busuanzi') ? get_config('plugins.busuanzi') : false)) { -->
                 
                 <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
                     <i class="far fa-eye"></i>
@@ -248,12 +247,44 @@ var _hmt = _hmt || [];
                 Git初探
             
         </h1>
+
         <div class="content">
-            <p>[TOC]</p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>早就听说了GitHub的强大. 一直没有机会去看, 在公司实习的几个月里也没机会接触SVN和Git,</p>
+
+            <!--update by thank: 控制首页摘要信息不显示样式(去掉Markdown生成的html标签)-->
+            
+                <p>[TOC]</p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>早就听说了GitHub的强大. 一直没有机会去看, 在公司实习的几个月里也没机会接触SVN和Git <a id="more"></a>]</p>
 <p>抱着对Linus大神的崇敬, 和开源的崇敬之情. 趁着不忙的几天来学习一下Git. 希望以后能够用到.</p>
-<a id="more"></a>]<br><br>其实Git还是十分好学. 用不了多久, 你就能体会到它的高效简洁之美!<br><br>这里我是在本地虚拟机Centos来学习. . . 只是学习他的简单原理和操作, 并没有真正的尝试项目.<br><br>同时借鉴了网上一些有经验的前辈们的理解.. 来自己操作和学习<br><br>很多地方简单的例子我都有做图解,,做PPT真的好难阿!!!<br><br>并且花了两天时间来学习并整理这个小的文档.<br><br>希望能有所收获!<br><br>——<br><br>### 1. 介绍Git<br><br>一款免费, 开源, 高效的分布式版本控制系统<br><br>- <a href="https://git-scm.com/" target="_blank" rel="noopener">https://git-scm.com</a> 官网下载 支持命令行和GUI<br>- <a href="https://gitref.org/" target="_blank" rel="noopener">https://gitref.org</a> 官方的帮助文档.<br><br><strong>SVN和Git的主要区别:</strong><br><br>&gt; SVN是集中式版本控制系统，版本库是集中放在中央服务器的，而干活的时候，用的都是自己的电脑<br>&gt;<br>&gt; 所以首先要从中央服务器哪里得到最新的版本，然后干活，干完后，需要把自己做完的活推送到中央服务器。<br>&gt;<br>&gt; Git是分布式版本控制系统，那么它就没有中央服务器的，每个人的电脑就是一个完整的版本库，这样，工作的时候就不需要联网了，因为版本都是在自己的电脑上。<br>&gt;<br>&gt; 既然每个人的电脑都有一个完整的版本库，那多个人如何协作呢？比如说自己在电脑上改了文件A，其他人也在电脑上改了文件A，<br>&gt;<br>&gt; 这时，你们两之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。<br><br>### 2. 全局配置git<br><br>- 安装 : sudo apt-get install git<br><br>- 查看版本: git –version<br><br>- 全局配置:<br><br>  <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; git config --global user.name xxx</span><br><span class="line">&gt; git config --global user.email xxx</span><br><span class="line">&gt; git config --global color.ui true</span><br></pre></td></tr></table></figure>
-<p>  配置用户名和邮箱是为了提交代码时的团队标识</p>
+<p>其实Git还是十分好学. 用不了多久, 你就能体会到它的高效简洁之美!</p>
+<p>这里我是在本地虚拟机Centos来学习. . . 只是学习他的简单原理和操作, 并没有真正的尝试项目.</p>
+<p>同时借鉴了网上一些有经验的前辈们的理解.. 来自己操作和学习</p>
+<p>很多地方简单的例子我都有做图解,,做PPT真的好难阿!!!</p>
+<p>并且花了两天时间来学习并整理这个小的文档.</p>
+<p>希望能有所收获!</p>
+<hr>
+<h3 id="1-介绍Git"><a href="#1-介绍Git" class="headerlink" title="1. 介绍Git"></a>1. 介绍Git</h3><p>一款免费, 开源, 高效的分布式版本控制系统</p>
+<ul>
+<li><a href="https://git-scm.com/" target="_blank" rel="noopener">https://git-scm.com</a> 官网下载 支持命令行和GUI</li>
+<li><a href="https://gitref.org/" target="_blank" rel="noopener">https://gitref.org</a> 官方的帮助文档.</li>
+</ul>
+<p><strong>SVN和Git的主要区别:</strong></p>
+<blockquote>
+<p>SVN是集中式版本控制系统，版本库是集中放在中央服务器的，而干活的时候，用的都是自己的电脑</p>
+<p>所以首先要从中央服务器哪里得到最新的版本，然后干活，干完后，需要把自己做完的活推送到中央服务器。</p>
+<p>Git是分布式版本控制系统，那么它就没有中央服务器的，每个人的电脑就是一个完整的版本库，这样，工作的时候就不需要联网了，因为版本都是在自己的电脑上。</p>
+<p>既然每个人的电脑都有一个完整的版本库，那多个人如何协作呢？比如说自己在电脑上改了文件A，其他人也在电脑上改了文件A，</p>
+<p>这时，你们两之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。</p>
+</blockquote>
+<h3 id="2-全局配置git"><a href="#2-全局配置git" class="headerlink" title="2. 全局配置git"></a>2. 全局配置git</h3><ul>
+<li><p>安装 : sudo apt-get install git</p>
+</li>
+<li><p>查看版本: git –version</p>
+</li>
+<li><p>全局配置:</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; git config --global user.name xxx</span><br><span class="line">&gt; git config --global user.email xxx</span><br><span class="line">&gt; git config --global color.ui true</span><br></pre></td></tr></table></figure>
+<p>配置用户名和邮箱是为了提交代码时的团队标识</p>
+</li>
+</ul>
 <blockquote>
 <p>git config –list 查看git全局配置</p>
 <p>cat ~/.gitconfig 全局配置都保存在用户目录下这个.gitconfig隐藏文件中, 也可以vi编辑</p>
@@ -498,6 +529,9 @@ var _hmt = _hmt || [];
 </blockquote>
 <p>2 搭建自己的Git仓库服务器</p>
 
+            
+
+            <!--%- index && post.excerpt ? post.excerpt : post.content %-->
         </div>
 
         
@@ -524,10 +558,7 @@ var _hmt = _hmt || [];
         
         
 
-        
-        <div class="social-share"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
-<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        <!--% if (!index && has_config('share.type')) { %-->
         
     </div>
 </div>
@@ -651,7 +682,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        17
                     </p>
                 </div>
             </div>
@@ -744,60 +775,68 @@ var _hmt = _hmt || [];
         <span class="has-mr-6">1</span>
         <span>前言</span>
         </a></li><li>
-        <a class="is-flex" href="#3-创建Repository">
+        <a class="is-flex" href="#1-介绍Git">
         <span class="has-mr-6">2</span>
+        <span>1. 介绍Git</span>
+        </a></li><li>
+        <a class="is-flex" href="#2-全局配置git">
+        <span class="has-mr-6">3</span>
+        <span>2. 全局配置git</span>
+        </a></li><li>
+        <a class="is-flex" href="#3-创建Repository">
+        <span class="has-mr-6">4</span>
         <span>3. 创建Repository</span>
         </a></li><li>
         <a class="is-flex" href="#4-Git的对象类型">
-        <span class="has-mr-6">3</span>
+        <span class="has-mr-6">5</span>
         <span>4. Git的对象类型</span>
         </a></li><li>
         <a class="is-flex" href="#5-提交及添加文件">
-        <span class="has-mr-6">4</span>
+        <span class="has-mr-6">6</span>
         <span>5. 提交及添加文件</span>
         </a></li><li>
         <a class="is-flex" href="#6-查看git状态">
-        <span class="has-mr-6">5</span>
+        <span class="has-mr-6">7</span>
         <span>6. 查看git状态</span>
         </a></li><li>
         <a class="is-flex" href="#7-查看文件差别">
-        <span class="has-mr-6">6</span>
+        <span class="has-mr-6">8</span>
         <span>7. 查看文件差别</span>
         </a></li><li>
         <a class="is-flex" href="#8-撤销误操作">
-        <span class="has-mr-6">7</span>
+        <span class="has-mr-6">9</span>
         <span>8. 撤销误操作</span>
         </a></li><li>
         <a class="is-flex" href="#9-移除及重命名文件">
-        <span class="has-mr-6">8</span>
+        <span class="has-mr-6">10</span>
         <span>9. 移除及重命名文件</span>
         </a></li><li>
         <a class="is-flex" href="#10-暂存工作区">
-        <span class="has-mr-6">9</span>
+        <span class="has-mr-6">11</span>
         <span>10. 暂存工作区</span>
         </a></li><li>
         <a class="is-flex" href="#11-图解commit对象">
-        <span class="has-mr-6">10</span>
+        <span class="has-mr-6">12</span>
         <span>11. 图解commit对象</span>
         </a></li><li>
         <a class="is-flex" href="#12-理解tree-ish表达式">
-        <span class="has-mr-6">11</span>
+        <span class="has-mr-6">13</span>
         <span>12. 理解tree-ish表达式</span>
         </a></li><li>
         <a class="is-flex" href="#13-创建及删除分支">
-        <span class="has-mr-6">12</span>
+        <span class="has-mr-6">14</span>
         <span>13. 创建及删除分支</span>
         </a></li><li>
         <a class="is-flex" href="#14-合并分支-上">
-        <span class="has-mr-6">13</span>
+        <span class="has-mr-6">15</span>
         <span>14. 合并分支(上)</span>
         </a></li><li>
         <a class="is-flex" href="#15-合并分支-下">
-        <span class="has-mr-6">14</span>
+        <span class="has-mr-6">16</span>
         <span>15. 合并分支(下)</span>
         </a></li><li>
         <a class="is-flex" href="#16-Git远程仓库">
-        <span class="has-mr-6">15</span>
+        <span class="has-mr-6">17</span>
         <span>16. Git远程仓库</span>
         </a></li></ul>
         </div>
@@ -826,8 +865,9 @@ var _hmt = _hmt || [];
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2019 i蝸居年華_谢谢谢&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                &copy; 2016—2019 i蝸居年華_谢谢谢&nbsp;
+                由<a href="http://hexo.io/" target="_blank">Hexo</a> 强力驱动
+                    <!--& <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>-->
                 
                 <br>
                 <span id="busuanzi_container_site_uv">

@@ -196,7 +196,6 @@ var _hmt = _hmt || [];
                 </span>
                 
 
-                <!--if (!index && (has_config('plugins.busuanzi') ? get_config('plugins.busuanzi') : false)) { -->
                 
                 <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
                     <i class="far fa-eye"></i>
@@ -211,8 +210,12 @@ var _hmt = _hmt || [];
                 问题排查:在eclipse下配置dbcp
             
         </h1>
+
         <div class="content">
-            <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p><strong>使用jndi的方式配置tomcat数据源.</strong></p>
+
+            <!--update by thank: 控制首页摘要信息不显示样式(去掉Markdown生成的html标签)-->
+            
+                <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p><strong>使用jndi的方式配置tomcat数据源.</strong></p>
 <a id="more"></a>
 <p>我的步骤如下: </p>
 <ol>
@@ -256,6 +259,9 @@ var _hmt = _hmt || [];
 <p><code>tomcat_home/conf</code>下的<code>server.xml</code>中就不会再出现和什么source属性了.</p>
 <p>警告也消失了!</p>
 
+            
+
+            <!--%- index && post.excerpt ? post.excerpt : post.content %-->
         </div>
 
         
@@ -273,10 +279,7 @@ var _hmt = _hmt || [];
         
         
 
-        
-        <div class="social-share"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
-<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        <!--% if (!index && has_config('share.type')) { %-->
         
     </div>
 </div>
@@ -400,7 +403,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        17
                     </p>
                 </div>
             </div>
@@ -535,8 +538,9 @@ var _hmt = _hmt || [];
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2019 i蝸居年華_谢谢谢&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                &copy; 2016—2019 i蝸居年華_谢谢谢&nbsp;
+                由<a href="http://hexo.io/" target="_blank">Hexo</a> 强力驱动
+                    <!--& <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>-->
                 
                 <br>
                 <span id="busuanzi_container_site_uv">

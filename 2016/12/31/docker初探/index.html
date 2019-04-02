@@ -8,18 +8,18 @@
 
 
     
-    <meta name="description" content="[TOC] 前言学习环境是本地虚拟机, linux版本使用CentOS 7. 由于使用最小安装方式, 在学习Docker之前, 顺带总结了下jdk安装和防火墙相关配置.">
+    <meta name="description" content="[TOC] 前言学习环境是本地虚拟机, linux版本使用CentOS 7.">
 <meta name="keywords" content="Docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker初探">
 <meta property="og:url" content="https://xiefayang.com/2016/12/31/docker初探/index.html">
 <meta property="og:site_name" content="i蝸居年華_谢谢谢_CODE_HOME">
-<meta property="og:description" content="[TOC] 前言学习环境是本地虚拟机, linux版本使用CentOS 7. 由于使用最小安装方式, 在学习Docker之前, 顺带总结了下jdk安装和防火墙相关配置.">
+<meta property="og:description" content="[TOC] 前言学习环境是本地虚拟机, linux版本使用CentOS 7.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-01T09:34:02.437Z">
+<meta property="og:updated_time" content="2019-04-02T05:28:31.743Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker初探">
-<meta name="twitter:description" content="[TOC] 前言学习环境是本地虚拟机, linux版本使用CentOS 7. 由于使用最小安装方式, 在学习Docker之前, 顺带总结了下jdk安装和防火墙相关配置.">
+<meta name="twitter:description" content="[TOC] 前言学习环境是本地虚拟机, linux版本使用CentOS 7.">
 
 
 
@@ -197,7 +197,6 @@ var _hmt = _hmt || [];
                 </span>
                 
 
-                <!--if (!index && (has_config('plugins.busuanzi') ? get_config('plugins.busuanzi') : false)) { -->
                 
                 <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
                     <i class="far fa-eye"></i>
@@ -212,10 +211,14 @@ var _hmt = _hmt || [];
                 Docker初探
             
         </h1>
+
         <div class="content">
-            <p>[TOC]</p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>学习环境是本地虚拟机, linux版本使用CentOS 7.</p>
-<p>由于使用最小安装方式, 在学习Docker之前, 顺带总结了下jdk安装和防火墙相关配置.<br><a id="more"></a></p>
+
+            <!--update by thank: 控制首页摘要信息不显示样式(去掉Markdown生成的html标签)-->
+            
+                <p>[TOC]</p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>学习环境是本地虚拟机, linux版本使用CentOS 7. <a id="more"></a></p>
+<p>由于使用最小安装方式, 在学习Docker之前, 顺带总结了下jdk安装和防火墙相关配置.</p>
 <h3 id="一-jdk安装"><a href="#一-jdk安装" class="headerlink" title="一: jdk安装"></a>一: jdk安装</h3><blockquote>
 <p> 在Centos下安装jdk有多种方式, 例如手动下载tar文件解压, yum安装, rpm安装等. </p>
 </blockquote>
@@ -343,6 +346,9 @@ var _hmt = _hmt || [];
 <p>如果返回为“net.ipv4.ip_forward = 1”则表示成功了</p>
 <p>推荐一个解决Docker学习中的疑难杂症: <a href="https://blog.lab99.org/post/docker-2016-07-14-faq.html#docker-zi-liao-hao-shao-a-wang-shang-de-ming-ling-zen-me-bu-neng-yong" target="_blank" rel="noopener">Docker问答录</a></p>
 
+            
+
+            <!--%- index && post.excerpt ? post.excerpt : post.content %-->
         </div>
 
         
@@ -369,10 +375,7 @@ var _hmt = _hmt || [];
         
         
 
-        
-        <div class="social-share"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
-<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        <!--% if (!index && has_config('share.type')) { %-->
         
     </div>
 </div>
@@ -496,7 +499,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        17
                     </p>
                 </div>
             </div>
@@ -663,8 +666,9 @@ var _hmt = _hmt || [];
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2019 i蝸居年華_谢谢谢&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                &copy; 2016—2019 i蝸居年華_谢谢谢&nbsp;
+                由<a href="http://hexo.io/" target="_blank">Hexo</a> 强力驱动
+                    <!--& <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>-->
                 
                 <br>
                 <span id="busuanzi_container_site_uv">

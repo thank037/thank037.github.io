@@ -196,7 +196,6 @@ var _hmt = _hmt || [];
                 </span>
                 
 
-                <!--if (!index && (has_config('plugins.busuanzi') ? get_config('plugins.busuanzi') : false)) { -->
                 
                 <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
                     <i class="far fa-eye"></i>
@@ -211,8 +210,12 @@ var _hmt = _hmt || [];
                 明日黄花Struts2
             
         </h1>
+
         <div class="content">
-            <p>[TOC]</p>
+
+            <!--update by thank: 控制首页摘要信息不显示样式(去掉Markdown生成的html标签)-->
+            
+                <p>[TOC]</p>
 <p>虽然Struts2已成为明日黄花 但还是决定来学习一下, 体会设计思想, 实用为辅.</p>
 <a id="more"></a>
 <h4 id="Struts2-登录"><a href="#Struts2-登录" class="headerlink" title="Struts2 登录"></a>Struts2 登录</h4><blockquote>
@@ -362,6 +365,9 @@ var _hmt = _hmt || [];
 <p>5 定义缺省拦截器,所有的Action都会使用</p>
 <p>6 拦截器的执行原理，在ActionInvocation中有一个成员变量Iterator，这个Iterator中保存了所有拦截器，<br>每次都会取得Iterator进行next,如果找到了拦截器就会执行，否则就执行Action，都执行完了<br>拦截器出栈（其实出栈就是拦截器的intercept方法弹出栈）</p>
 
+            
+
+            <!--%- index && post.excerpt ? post.excerpt : post.content %-->
         </div>
 
         
@@ -379,10 +385,7 @@ var _hmt = _hmt || [];
         
         
 
-        
-        <div class="social-share"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
-<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        <!--% if (!index && has_config('share.type')) { %-->
         
     </div>
 </div>
@@ -506,7 +509,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        17
                     </p>
                 </div>
             </div>
@@ -677,8 +680,9 @@ var _hmt = _hmt || [];
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2019 i蝸居年華_谢谢谢&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                &copy; 2016—2019 i蝸居年華_谢谢谢&nbsp;
+                由<a href="http://hexo.io/" target="_blank">Hexo</a> 强力驱动
+                    <!--& <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>-->
                 
                 <br>
                 <span id="busuanzi_container_site_uv">

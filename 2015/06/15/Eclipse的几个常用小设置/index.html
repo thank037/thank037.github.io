@@ -197,7 +197,6 @@ var _hmt = _hmt || [];
                 </span>
                 
 
-                <!--if (!index && (has_config('plugins.busuanzi') ? get_config('plugins.busuanzi') : false)) { -->
                 
                 <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
                     <i class="far fa-eye"></i>
@@ -212,8 +211,12 @@ var _hmt = _hmt || [];
                 总结Eclipse设置
             
         </h1>
+
         <div class="content">
-            <p>总结一些Eclipse常用的设置, 不设置不好用</p>
+
+            <!--update by thank: 控制首页摘要信息不显示样式(去掉Markdown生成的html标签)-->
+            
+                <p>总结一些Eclipse常用的设置, 不设置不好用</p>
 <a id="more"></a>
 <h5 id="去掉红色波浪线的拼写检查"><a href="#去掉红色波浪线的拼写检查" class="headerlink" title="去掉红色波浪线的拼写检查:"></a><strong>去掉红色波浪线的拼写检查:</strong></h5><blockquote>
 <p>Windows-&gt;Preferences-&gt;General-&gt;Editors-&gt;Text Editors-&gt; Spelling<br>将Enable spell checking取消即可.</p>
@@ -240,6 +243,9 @@ var _hmt = _hmt || [];
 <p>TODO</p>
 </blockquote>
 
+            
+
+            <!--%- index && post.excerpt ? post.excerpt : post.content %-->
         </div>
 
         
@@ -266,10 +272,7 @@ var _hmt = _hmt || [];
         
         
 
-        
-        <div class="social-share"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
-<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        <!--% if (!index && has_config('share.type')) { %-->
         
     </div>
 </div>
@@ -393,7 +396,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        17
                     </p>
                 </div>
             </div>
@@ -540,8 +543,9 @@ var _hmt = _hmt || [];
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2019 i蝸居年華_谢谢谢&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                &copy; 2016—2019 i蝸居年華_谢谢谢&nbsp;
+                由<a href="http://hexo.io/" target="_blank">Hexo</a> 强力驱动
+                    <!--& <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>-->
                 
                 <br>
                 <span id="busuanzi_container_site_uv">

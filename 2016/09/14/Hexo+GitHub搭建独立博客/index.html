@@ -8,13 +8,13 @@
 
 
     
-    <meta name="description" content="[TOC] 前言 之前, 一直看CSDN上写别人的博客, 博客园, CSDN上都有很丰富的资料. 自己在CSDN上记录学习文章过程中, 发现了一些不太喜欢的地方.  比如有时候再嵌入代码和图片时候兼容问题(可能是自己的错误) , 会有广告,  缺乏个性.  所以就想搭建一个独立的博客.">
+    <meta name="description" content="[TOC] 前言 之前, 一直看CSDN上写别人的博客, 博客园, CSDN上都有很丰富的资料.">
 <meta name="keywords" content="github,hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo+GitHub搭建独立博客">
 <meta property="og:url" content="https://xiefayang.com/2016/09/14/Hexo+GitHub搭建独立博客/index.html">
 <meta property="og:site_name" content="i蝸居年華_谢谢谢_CODE_HOME">
-<meta property="og:description" content="[TOC] 前言 之前, 一直看CSDN上写别人的博客, 博客园, CSDN上都有很丰富的资料. 自己在CSDN上记录学习文章过程中, 发现了一些不太喜欢的地方.  比如有时候再嵌入代码和图片时候兼容问题(可能是自己的错误) , 会有广告,  缺乏个性.  所以就想搭建一个独立的博客.">
+<meta property="og:description" content="[TOC] 前言 之前, 一直看CSDN上写别人的博客, 博客园, CSDN上都有很丰富的资料.">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ww1.sinaimg.cn/large/007rAy9hgy1g1n8sbiz29j30tl0gr0ub.jpg">
 <meta property="og:image" content="https://ww1.sinaimg.cn/large/007rAy9hly1g1n8tmjcf7j30tn0h2aba.jpg">
@@ -23,10 +23,10 @@
 <meta property="og:image" content="https://ww1.sinaimg.cn/large/007rAy9hly1g1n8z5mlp4j30jo0det9q.jpg">
 <meta property="og:image" content="https://ww1.sinaimg.cn/large/007rAy9hgy1g1n943c824j30z60h2jsh.jpg">
 <meta property="og:image" content="https://ww1.sinaimg.cn/large/007rAy9hly1g1n963562oj30tm0gr3yy.jpg">
-<meta property="og:updated_time" content="2019-04-01T09:19:18.398Z">
+<meta property="og:updated_time" content="2019-04-02T03:59:02.004Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo+GitHub搭建独立博客">
-<meta name="twitter:description" content="[TOC] 前言 之前, 一直看CSDN上写别人的博客, 博客园, CSDN上都有很丰富的资料. 自己在CSDN上记录学习文章过程中, 发现了一些不太喜欢的地方.  比如有时候再嵌入代码和图片时候兼容问题(可能是自己的错误) , 会有广告,  缺乏个性.  所以就想搭建一个独立的博客.">
+<meta name="twitter:description" content="[TOC] 前言 之前, 一直看CSDN上写别人的博客, 博客园, CSDN上都有很丰富的资料.">
 <meta name="twitter:image" content="https://ww1.sinaimg.cn/large/007rAy9hgy1g1n8sbiz29j30tl0gr0ub.jpg">
 
 
@@ -205,7 +205,6 @@ var _hmt = _hmt || [];
                 </span>
                 
 
-                <!--if (!index && (has_config('plugins.busuanzi') ? get_config('plugins.busuanzi') : false)) { -->
                 
                 <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
                     <i class="far fa-eye"></i>
@@ -220,15 +219,18 @@ var _hmt = _hmt || [];
                 Hexo+GitHub搭建独立博客
             
         </h1>
+
         <div class="content">
-            <p>[TOC]</p>
+
+            <!--update by thank: 控制首页摘要信息不显示样式(去掉Markdown生成的html标签)-->
+            
+                <p>[TOC]</p>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
-<p>之前, 一直看CSDN上写别人的博客, 博客园, CSDN上都有很丰富的资料.</p>
-<p>自己在CSDN上记录学习文章过程中, 发现了一些不太喜欢的地方. </p>
+<p>之前, 一直看CSDN上写别人的博客, 博客园, CSDN上都有很丰富的资料. <a id="more"></a></p>
+<p>自己在CSDN上记录学习文章过程中, 发现了一些不太喜欢的地方.  </p>
 <p>比如有时候再嵌入代码和图片时候兼容问题(可能是自己的错误) , 会有广告,  缺乏个性. </p>
 <p>所以就想搭建一个独立的博客.</p>
 </blockquote>
-<a id="more"></a>
 <p>在互联网上搜集一些资料, 参考了很多别人的个人博客. 最终选择Hexo+GitHub Pages</p>
 <p>整体难度不是很大, 但是过程还是比较繁琐的, 需要懂点Git, 很多是需要命令中的配置. </p>
 <p>如果你有强迫症, 想要把博客定制的比较符合心意, 就更需要读更多文档来做个性化配置.</p>
@@ -378,6 +380,9 @@ var _hmt = _hmt || [];
 <p>因为是在github上, 访问的速度当然不如CSDN上的.</p>
 <p>不过现在已经支持DNS配置访问选择距离你最近的服务器. 速度已经有所提升.</p>
 
+            
+
+            <!--%- index && post.excerpt ? post.excerpt : post.content %-->
         </div>
 
         
@@ -404,10 +409,7 @@ var _hmt = _hmt || [];
         
         
 
-        
-        <div class="social-share"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
-<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        <!--% if (!index && has_config('share.type')) { %-->
         
     </div>
 </div>
@@ -531,7 +533,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        17
                     </p>
                 </div>
             </div>
@@ -702,8 +704,9 @@ var _hmt = _hmt || [];
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2019 i蝸居年華_谢谢谢&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                &copy; 2016—2019 i蝸居年華_谢谢谢&nbsp;
+                由<a href="http://hexo.io/" target="_blank">Hexo</a> 强力驱动
+                    <!--& <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>-->
                 
                 <br>
                 <span id="busuanzi_container_site_uv">

@@ -8,19 +8,19 @@
 
 
     
-    <meta name="description" content="[TOC] 一. 序言 第一眼看到githug, 以为是把github拼错. 见过了git, github, github pages, git workflow. 一定好奇githug是什么. 原来… 是个游戏! 所以如果不玩一把, 就白当游戏玩家了.">
+    <meta name="description" content="[TOC] 一. 序言 第一眼看到githug, 以为是把github拼错.">
 <meta name="keywords" content="Git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="通关Githug">
 <meta property="og:url" content="https://xiefayang.com/2017/12/25/通关Githug/index.html">
 <meta property="og:site_name" content="i蝸居年華_谢谢谢_CODE_HOME">
-<meta property="og:description" content="[TOC] 一. 序言 第一眼看到githug, 以为是把github拼错. 见过了git, github, github pages, git workflow. 一定好奇githug是什么. 原来… 是个游戏! 所以如果不玩一把, 就白当游戏玩家了.">
+<meta property="og:description" content="[TOC] 一. 序言 第一眼看到githug, 以为是把github拼错.">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://img.blog.csdn.net/20160325192928814?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
-<meta property="og:updated_time" content="2019-04-01T10:55:25.239Z">
+<meta property="og:updated_time" content="2019-04-02T03:53:14.799Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="通关Githug">
-<meta name="twitter:description" content="[TOC] 一. 序言 第一眼看到githug, 以为是把github拼错. 见过了git, github, github pages, git workflow. 一定好奇githug是什么. 原来… 是个游戏! 所以如果不玩一把, 就白当游戏玩家了.">
+<meta name="twitter:description" content="[TOC] 一. 序言 第一眼看到githug, 以为是把github拼错.">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20160325192928814?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
 
 
@@ -199,7 +199,6 @@ var _hmt = _hmt || [];
                 </span>
                 
 
-                <!--if (!index && (has_config('plugins.busuanzi') ? get_config('plugins.busuanzi') : false)) { -->
                 
                 <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
                     <i class="far fa-eye"></i>
@@ -214,14 +213,17 @@ var _hmt = _hmt || [];
                 通关Githug
             
         </h1>
+
         <div class="content">
-            <p>[TOC]</p>
+
+            <!--update by thank: 控制首页摘要信息不显示样式(去掉Markdown生成的html标签)-->
+            
+                <p>[TOC]</p>
 <h3 id="一-序言"><a href="#一-序言" class="headerlink" title="一. 序言"></a>一. 序言</h3><blockquote>
-<p>第一眼看到githug, 以为是把github拼错.</p>
+<p>第一眼看到githug, 以为是把github拼错. <a id="more"></a></p>
 <p>见过了git, github, github pages, git workflow. 一定好奇githug是什么.</p>
 <p>原来… 是个游戏! 所以如果不玩一把, 就白当游戏玩家了.</p>
 </blockquote>
-<a id="more"></a>
 <p>关于Git的学习, 大学时候写过一篇: <a href="http://www.xiefayang.com/2016/03/25/git%E5%B0%8F%E7%8E%A9/" target="_blank" rel="noopener">git小玩</a> .</p>
 <p>虽然很多IDE都有集成git插件, 在了解git命令和使用场景后再去使用IDE才会更加明白.</p>
 <p>甚至我认为很多操作使用git bash远比IDE更效率!</p>
@@ -940,6 +942,9 @@ var _hmt = _hmt || [];
 <p>最后一关, 是让你去GitHub贡献一个request.</p>
 <p>其实到这已经全部通关!</p>
 
+            
+
+            <!--%- index && post.excerpt ? post.excerpt : post.content %-->
         </div>
 
         
@@ -966,10 +971,7 @@ var _hmt = _hmt || [];
         
         
 
-        
-        <div class="social-share"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
-<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        <!--% if (!index && has_config('share.type')) { %-->
         
     </div>
 </div>
@@ -1093,7 +1095,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        17
                     </p>
                 </div>
             </div>
@@ -1460,8 +1462,9 @@ var _hmt = _hmt || [];
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2019 i蝸居年華_谢谢谢&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                &copy; 2016—2019 i蝸居年華_谢谢谢&nbsp;
+                由<a href="http://hexo.io/" target="_blank">Hexo</a> 强力驱动
+                    <!--& <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>-->
                 
                 <br>
                 <span id="busuanzi_container_site_uv">

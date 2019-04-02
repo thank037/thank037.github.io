@@ -8,18 +8,18 @@
 
 
     
-    <meta name="description" content="序言 之前作为一个开发狗. 并不太多涉及Linux系统管理. 对shell脚本也一无所知. 但是对于jar包的部署和打包是要经常在Linux环境下的. 对于极度懒人的我来说过于繁琐, 每次都要命令来查询, 复制粘贴执行.  能让计算机做的为什么要我们自己做呢哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈 只是为了解决当务之需才去研究shell.  并没有系统完整的学习shell 目前在测试和开发环境已经有十多个">
+    <meta name="description" content="序言 之前作为一个开发狗. 并不太多涉及Linux系统管理. 对shell脚本也一无所知.">
 <meta name="keywords" content="Linux,shell">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shell脚本方便微服务部署">
 <meta property="og:url" content="https://xiefayang.com/2017/02/15/shell脚本之方便微服务部署/index.html">
 <meta property="og:site_name" content="i蝸居年華_谢谢谢_CODE_HOME">
-<meta property="og:description" content="序言 之前作为一个开发狗. 并不太多涉及Linux系统管理. 对shell脚本也一无所知. 但是对于jar包的部署和打包是要经常在Linux环境下的. 对于极度懒人的我来说过于繁琐, 每次都要命令来查询, 复制粘贴执行.  能让计算机做的为什么要我们自己做呢哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈 只是为了解决当务之需才去研究shell.  并没有系统完整的学习shell 目前在测试和开发环境已经有十多个">
+<meta property="og:description" content="序言 之前作为一个开发狗. 并不太多涉及Linux系统管理. 对shell脚本也一无所知.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-01T08:32:36.258Z">
+<meta property="og:updated_time" content="2019-04-02T03:54:26.993Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shell脚本方便微服务部署">
-<meta name="twitter:description" content="序言 之前作为一个开发狗. 并不太多涉及Linux系统管理. 对shell脚本也一无所知. 但是对于jar包的部署和打包是要经常在Linux环境下的. 对于极度懒人的我来说过于繁琐, 每次都要命令来查询, 复制粘贴执行.  能让计算机做的为什么要我们自己做呢哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈 只是为了解决当务之需才去研究shell.  并没有系统完整的学习shell 目前在测试和开发环境已经有十多个">
+<meta name="twitter:description" content="序言 之前作为一个开发狗. 并不太多涉及Linux系统管理. 对shell脚本也一无所知.">
 
 
 
@@ -197,7 +197,6 @@ var _hmt = _hmt || [];
                 </span>
                 
 
-                <!--if (!index && (has_config('plugins.busuanzi') ? get_config('plugins.busuanzi') : false)) { -->
                 
                 <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
                     <i class="far fa-eye"></i>
@@ -212,9 +211,13 @@ var _hmt = _hmt || [];
                 Shell脚本方便微服务部署
             
         </h1>
+
         <div class="content">
-            <h3 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h3><blockquote>
-<p>之前作为一个开发狗. 并不太多涉及Linux系统管理. 对shell脚本也一无所知.</p>
+
+            <!--update by thank: 控制首页摘要信息不显示样式(去掉Markdown生成的html标签)-->
+            
+                <h3 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h3><blockquote>
+<p>之前作为一个开发狗. 并不太多涉及Linux系统管理. 对shell脚本也一无所知.<a id="more"></a></p>
 <p>但是对于jar包的部署和打包是要经常在Linux环境下的.</p>
 <p>对于极度懒人的我来说过于繁琐, 每次都要命令来查询, 复制粘贴执行.</p>
 </blockquote>
@@ -226,7 +229,6 @@ var _hmt = _hmt || [];
 <li>mvn打包编译</li>
 <li>单个/批量启停</li>
 </ul>
-<a id="more"></a>
 <h3 id="关于shell"><a href="#关于shell" class="headerlink" title="关于shell"></a>关于shell</h3><p>shell用C语言编写, 是Linux管理中必不可少的. 也是系统和硬件交互的一种介质.</p>
 <p>我们通过指令传给shell, shell再通过系统内核就能实现对计算机硬件的操作.</p>
 <p>他有自己的命令和程序设计语言, 供我们编写, 在我看来, 如同PL/SQL编程</p>
@@ -277,6 +279,9 @@ var _hmt = _hmt || [];
 <p>所以这里又用到lsof命令来获得一个程序的状态, 进而来判断是否继续执行</p>
 <p>以下script实现判断当x服务启动以后, 再顺序执行a,b程序. 最后再判断a,b是否启动成功</p>
 <figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span>!/bin/bash</span><br><span class="line">echo "x server booting..."</span><br><span class="line">nohup java -jar /aa/bb/x.jar &amp;&gt;/dev/null &amp;</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span> 判断9900的x服务启动与否</span><br><span class="line">while [ -z "$(lsof -i:9000 -t -s TCP:LISTEN)" ] </span><br><span class="line">do</span><br><span class="line">  sleep 3</span><br><span class="line">done</span><br><span class="line">if [ -n "$(lsof -i:9000 -t -s TCP:LISTEN)" ]</span><br><span class="line">then</span><br><span class="line">  echo "x server start success!"</span><br><span class="line">else</span><br><span class="line">  echo "ERROR: x server boot failure !!!! "</span><br><span class="line">  exit 5</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span> 只有当9900的x服务启动成功后, 继续执行下面</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span> 启动a服务</span><br><span class="line">nohup java -jar /aa/bb/a_server.jar  \</span><br><span class="line">--server.port=8901 \</span><br><span class="line"><span class="hljs-meta">&gt;</span>/my_log/a.log 2&gt;/my_log/a_error.log &amp;</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span> 启动b服务</span><br><span class="line">nohup java -jar /aa/bb/b_server.jar  \</span><br><span class="line">--server.port=8902 \</span><br><span class="line"><span class="hljs-meta">&gt;</span>/my_log/b.log 2&gt;/my_log/b_error.log &amp;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span> 判断a(port:8901),b(port:8902)服务是否启动成功</span><br><span class="line">i=2</span><br><span class="line">a_server=1</span><br><span class="line">b_server=1</span><br><span class="line"></span><br><span class="line">while [ 1 -gt 0 ] &amp;&amp; [ $&#123;i&#125; -gt 0 ]</span><br><span class="line">do</span><br><span class="line">  if [ -n "$(lsof -i:8901 -t -s TCP:LISTEN)" ] ]</span><br><span class="line">  then</span><br><span class="line">    echo "a server start success !!!"</span><br><span class="line">    i=$[ $&#123;i&#125; - 1 ]</span><br><span class="line">  fi</span><br><span class="line">  if [ -n "$(lsof -i:8902 -t -s TCP:LISTEN)" ] ]</span><br><span class="line">  then</span><br><span class="line">    echo "b server start success !!!"</span><br><span class="line">    i=$[ $&#123;i&#125; - 1 ]</span><br><span class="line">  fi</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+            
+
+            <!--%- index && post.excerpt ? post.excerpt : post.content %-->
         </div>
 
         
@@ -303,10 +308,7 @@ var _hmt = _hmt || [];
         
         
 
-        
-        <div class="social-share"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
-<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        <!--% if (!index && has_config('share.type')) { %-->
         
     </div>
 </div>
@@ -430,7 +432,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        17
                     </p>
                 </div>
             </div>
@@ -565,8 +567,9 @@ var _hmt = _hmt || [];
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2019 i蝸居年華_谢谢谢&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                &copy; 2016—2019 i蝸居年華_谢谢谢&nbsp;
+                由<a href="http://hexo.io/" target="_blank">Hexo</a> 强力驱动
+                    <!--& <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>-->
                 
                 <br>
                 <span id="busuanzi_container_site_uv">

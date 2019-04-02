@@ -8,18 +8,18 @@
 
 
     
-    <meta name="description" content="[TOC]  序言: 计算机老师让每个人准备一个PPT对其演讲, 内容不限 看到同学都在讲Java实现xxx系统, 感觉很厉害. 所以我想来看下设计模式. 从最简单的看起">
+    <meta name="description" content="[TOC]  序言: 计算机老师让每个人准备一个PPT对其演讲, 内容不限">
 <meta name="keywords" content="设计模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式—单例模式">
 <meta property="og:url" content="https://xiefayang.com/2015/06/26/设计模式之单例模式/index.html">
 <meta property="og:site_name" content="i蝸居年華_谢谢谢_CODE_HOME">
-<meta property="og:description" content="[TOC]  序言: 计算机老师让每个人准备一个PPT对其演讲, 内容不限 看到同学都在讲Java实现xxx系统, 感觉很厉害. 所以我想来看下设计模式. 从最简单的看起">
+<meta property="og:description" content="[TOC]  序言: 计算机老师让每个人准备一个PPT对其演讲, 内容不限">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-01T07:58:35.924Z">
+<meta property="og:updated_time" content="2019-04-02T03:54:53.805Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式—单例模式">
-<meta name="twitter:description" content="[TOC]  序言: 计算机老师让每个人准备一个PPT对其演讲, 内容不限 看到同学都在讲Java实现xxx系统, 感觉很厉害. 所以我想来看下设计模式. 从最简单的看起">
+<meta name="twitter:description" content="[TOC]  序言: 计算机老师让每个人准备一个PPT对其演讲, 内容不限">
 
 
 
@@ -197,7 +197,6 @@ var _hmt = _hmt || [];
                 </span>
                 
 
-                <!--if (!index && (has_config('plugins.busuanzi') ? get_config('plugins.busuanzi') : false)) { -->
                 
                 <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
                     <i class="far fa-eye"></i>
@@ -212,13 +211,16 @@ var _hmt = _hmt || [];
                 设计模式—单例模式
             
         </h1>
+
         <div class="content">
-            <p>[TOC]</p>
+
+            <!--update by thank: 控制首页摘要信息不显示样式(去掉Markdown生成的html标签)-->
+            
+                <p>[TOC]</p>
 <blockquote>
-<p>序言: 计算机老师让每个人准备一个PPT对其演讲, 内容不限</p>
+<p>序言: 计算机老师让每个人准备一个PPT对其演讲, 内容不限 <a id="more"></a></p>
 <p>看到同学都在讲Java实现xxx系统, 感觉很厉害. 所以我想来看下设计模式. 从最简单的看起</p>
 </blockquote>
-<a id="more"></a>
 <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>设计模式(Design pattern): 是一套被反复使用, 多数人知晓的, 经过分类遍目的,代码设计经验的总结.</p>
 <p>目的: 使用设计模式是为了可重用代码, 让代码更容易被他人理解, 保证代码的可靠性</p>
 <p>单例模式(Singleton): </p>
@@ -287,6 +289,9 @@ var _hmt = _hmt || [];
 <p>由于SingletonClassInstance是私有静态内部类，所以不会被其他类知道，同样，static语义也要求不会有多个实例存在。并且，JSL规范定义，类的构造必须是原子性的，非并发的，因此不需要加同步块。同样，由于这个构造是并发的，所以getInstance()也并不需要加同步。</p>
 <p>至此，我们完整的了解了单例模式在Java语言中的时候，提出了两种解决方案。个人偏向于第二种，并且Effiective Java也推荐的这种方式。</p>
 
+            
+
+            <!--%- index && post.excerpt ? post.excerpt : post.content %-->
         </div>
 
         
@@ -313,10 +318,7 @@ var _hmt = _hmt || [];
         
         
 
-        
-        <div class="social-share"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
-<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        <!--% if (!index && has_config('share.type')) { %-->
         
     </div>
 </div>
@@ -440,7 +442,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        17
                     </p>
                 </div>
             </div>
@@ -583,8 +585,9 @@ var _hmt = _hmt || [];
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2019 i蝸居年華_谢谢谢&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                &copy; 2016—2019 i蝸居年華_谢谢谢&nbsp;
+                由<a href="http://hexo.io/" target="_blank">Hexo</a> 强力驱动
+                    <!--& <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>-->
                 
                 <br>
                 <span id="busuanzi_container_site_uv">

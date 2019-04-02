@@ -203,12 +203,6 @@ var _hmt = _hmt || [];
                 </span>
                 
 
-                <!--if (!index && (has_config('plugins.busuanzi') ? get_config('plugins.busuanzi') : false)) { -->
-                
-                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
-                    <i class="far fa-eye"></i>
-                    <span id="busuanzi_value_page_pv">0</span>次访问
-                </span>
                 
             </div>
         </div>
@@ -218,9 +212,16 @@ var _hmt = _hmt || [];
                 <a class="has-link-black-ter" href="/2017/04/20/freemarker导出复杂Excel/">freemarker导出复杂Excel</a>
             
         </h1>
+
         <div class="content">
-            <p>[TOC]</p>
-<h3 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h3><p>用Freemarker做Excel导出确实很容易. 但是导出复杂Excel, 例如多行合并的还是费了一天时间</p>
+
+            <!--update by thank: 控制首页摘要信息不显示样式(去掉Markdown生成的html标签)-->
+            
+                
+<p>用Freemarker做Excel导出确实很容易. 但是导出复杂Excel, 例如多行合并的还是费了一天时间</p>
+            
+
+            <!--%- index && post.excerpt ? post.excerpt : post.content %-->
         </div>
 
         
@@ -231,12 +232,17 @@ var _hmt = _hmt || [];
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2017/04/20/freemarker导出复杂Excel/#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/2017/04/20/freemarker导出复杂Excel/#more">阅读更多...</a>
                 </div>
             </div>
         </div>
         
 
+        <!--% if (!index && has_config('share.type')) { %-->
+        
+        <div class="social-share"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
         
     </div>
 </div>
@@ -279,12 +285,6 @@ var _hmt = _hmt || [];
                 </span>
                 
 
-                <!--if (!index && (has_config('plugins.busuanzi') ? get_config('plugins.busuanzi') : false)) { -->
-                
-                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
-                    <i class="far fa-eye"></i>
-                    <span id="busuanzi_value_page_pv">0</span>次访问
-                </span>
                 
             </div>
         </div>
@@ -294,9 +294,16 @@ var _hmt = _hmt || [];
                 <a class="has-link-black-ter" href="/2016/09/15/报表开发(润乾报表)/">润乾报表的使用</a>
             
         </h1>
+
         <div class="content">
-            <p>[TOC]</p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>前段时间项目用到了报表开发, 选择润乾报表来做. 是款纯Java的报表开发工具, 采用设计和集成分离的方式, 开发过程也较为简单.</p>
+
+            <!--update by thank: 控制首页摘要信息不显示样式(去掉Markdown生成的html标签)-->
+            
+                
+<p>前段时间项目用到了报表开发, 选择润乾报表来做. 是款纯Java的报表开发工具, 采用设计和集成分离的方式, 开发过程也较为简单.</p>
+            
+
+            <!--%- index && post.excerpt ? post.excerpt : post.content %-->
         </div>
 
         
@@ -307,12 +314,17 @@ var _hmt = _hmt || [];
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2016/09/15/报表开发(润乾报表)/#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/2016/09/15/报表开发(润乾报表)/#more">阅读更多...</a>
                 </div>
             </div>
         </div>
         
 
+        <!--% if (!index && has_config('share.type')) { %-->
+        
+        <div class="social-share"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
         
     </div>
 </div>
@@ -355,12 +367,6 @@ var _hmt = _hmt || [];
                 </span>
                 
 
-                <!--if (!index && (has_config('plugins.busuanzi') ? get_config('plugins.busuanzi') : false)) { -->
-                
-                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
-                    <i class="far fa-eye"></i>
-                    <span id="busuanzi_value_page_pv">0</span>次访问
-                </span>
                 
             </div>
         </div>
@@ -370,11 +376,16 @@ var _hmt = _hmt || [];
                 <a class="has-link-black-ter" href="/2016/09/04/easyui 下拉选择树(ComboTree) 的实现/">easyui下拉选择树(ComboTree)</a>
             
         </h1>
+
         <div class="content">
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
-<p>很多时候都会用到下拉框,有时候为了显示更好的效果,会用到树型下拉框,实际就是下拉框中带了一个树型的控件,所以它自然继承自tree和combobox.</p>
-<p>后台没什么问题, 但是easyui我是真的不会阿</p>
-</blockquote>
+
+            <!--update by thank: 控制首页摘要信息不显示样式(去掉Markdown生成的html标签)-->
+            
+                
+很多时候都会用到下拉框,有时候为了显示更好的效果,会用到树型下拉框,实际就是下拉框中带了一个树型的控件,所以它自然继承自tree和combobox.
+            
+
+            <!--%- index && post.excerpt ? post.excerpt : post.content %-->
         </div>
 
         
@@ -385,12 +396,17 @@ var _hmt = _hmt || [];
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2016/09/04/easyui 下拉选择树(ComboTree) 的实现/#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/2016/09/04/easyui 下拉选择树(ComboTree) 的实现/#more">阅读更多...</a>
                 </div>
             </div>
         </div>
         
 
+        <!--% if (!index && has_config('share.type')) { %-->
+        
+        <div class="social-share"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
         
     </div>
 </div>
@@ -455,7 +471,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        17
                     </p>
                 </div>
             </div>
@@ -638,7 +654,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Linux</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">3</span>
+                <span class="level-item tag">4</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Python/">
@@ -668,14 +684,6 @@ var _hmt = _hmt || [];
         <a class="level is-marginless" href="/categories/activiti/">
             <span class="level-start">
                 <span class="level-item">activiti</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/shell/">
-            <span class="level-start">
-                <span class="level-item">shell</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
@@ -840,7 +848,7 @@ var _hmt = _hmt || [];
             
             <a href="/2018/01/01/Elasticsearch初探/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/thumbnails/elasticsearch.jpg" alt="Elasticsearch初探">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Elasticsearch初探">
                 </p>
             </a>
             
@@ -1180,7 +1188,7 @@ var _hmt = _hmt || [];
             
             <a href="/2018/01/01/Elasticsearch初探/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/thumbnails/elasticsearch.jpg" alt="Elasticsearch初探">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Elasticsearch初探">
                 </p>
             </a>
             
@@ -1457,8 +1465,9 @@ var _hmt = _hmt || [];
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2019 i蝸居年華_谢谢谢&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                &copy; 2016—2019 i蝸居年華_谢谢谢&nbsp;
+                由<a href="http://hexo.io/" target="_blank">Hexo</a> 强力驱动
+                    <!--& <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>-->
                 
                 <br>
                 <span id="busuanzi_container_site_uv">

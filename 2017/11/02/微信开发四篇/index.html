@@ -8,13 +8,13 @@
 
 
     
-    <meta name="description" content="[TOC] 序言 上一篇微信相关的开发是《基于WEB微信通信实现智能聊天机器人》. 而怎么保持机器人稳定在线, 不被微信封号, 是一直遗留的问题… 网上一个稳定版本的IOS微信协议已经卖到2000! 所以无力研究了. 相比之下, 微信公众号开发和小程序更加火爆.  本篇将通过微信公众平台, 微信开放平台, 微信商户平台. 分为四篇来完成以下几个常用功能.">
+    <meta name="description" content="[TOC] 序言 上一篇微信相关的开发是《基于WEB微信通信实现智能聊天机器人》. 而怎么保持机器人稳定在线, 不被微信封号, 是一直遗留的问题…">
 <meta name="keywords" content="微信开发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信开发四篇">
 <meta property="og:url" content="https://xiefayang.com/2017/11/02/微信开发四篇/index.html">
 <meta property="og:site_name" content="i蝸居年華_谢谢谢_CODE_HOME">
-<meta property="og:description" content="[TOC] 序言 上一篇微信相关的开发是《基于WEB微信通信实现智能聊天机器人》. 而怎么保持机器人稳定在线, 不被微信封号, 是一直遗留的问题… 网上一个稳定版本的IOS微信协议已经卖到2000! 所以无力研究了. 相比之下, 微信公众号开发和小程序更加火爆.  本篇将通过微信公众平台, 微信开放平台, 微信商户平台. 分为四篇来完成以下几个常用功能.">
+<meta property="og:description" content="[TOC] 序言 上一篇微信相关的开发是《基于WEB微信通信实现智能聊天机器人》. 而怎么保持机器人稳定在线, 不被微信封号, 是一直遗留的问题…">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://img.blog.csdn.net/20171105155021079?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMTY1MDI5MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20171105155057588?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMTY1MDI5MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
@@ -22,10 +22,10 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20171105155157792?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMTY1MDI5MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20171105155229491?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMTY1MDI5MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20171105155246152?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMTY1MDI5MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2019-04-01T10:15:07.252Z">
+<meta property="og:updated_time" content="2019-04-02T03:50:09.823Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信开发四篇">
-<meta name="twitter:description" content="[TOC] 序言 上一篇微信相关的开发是《基于WEB微信通信实现智能聊天机器人》. 而怎么保持机器人稳定在线, 不被微信封号, 是一直遗留的问题… 网上一个稳定版本的IOS微信协议已经卖到2000! 所以无力研究了. 相比之下, 微信公众号开发和小程序更加火爆.  本篇将通过微信公众平台, 微信开放平台, 微信商户平台. 分为四篇来完成以下几个常用功能.">
+<meta name="twitter:description" content="[TOC] 序言 上一篇微信相关的开发是《基于WEB微信通信实现智能聊天机器人》. 而怎么保持机器人稳定在线, 不被微信封号, 是一直遗留的问题…">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20171105155021079?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMTY1MDI5MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
@@ -204,7 +204,6 @@ var _hmt = _hmt || [];
                 </span>
                 
 
-                <!--if (!index && (has_config('plugins.busuanzi') ? get_config('plugins.busuanzi') : false)) { -->
                 
                 <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
                     <i class="far fa-eye"></i>
@@ -219,16 +218,19 @@ var _hmt = _hmt || [];
                 微信开发四篇
             
         </h1>
+
         <div class="content">
-            <p>[TOC]</p>
+
+            <!--update by thank: 控制首页摘要信息不显示样式(去掉Markdown生成的html标签)-->
+            
+                <p>[TOC]</p>
 <h3 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h3><blockquote>
 <p>上一篇微信相关的开发是<a href="http://xiefayang.com/2017/04/10/%E5%9F%BA%E4%BA%8EWEB%E5%BE%AE%E4%BF%A1%E9%80%9A%E4%BF%A1%E5%AE%9E%E7%8E%B0%E6%99%BA%E8%83%BD%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA/"><strong>《基于WEB微信通信实现智能聊天机器人》</strong></a>.</p>
-<p>而怎么保持机器人稳定在线, 不被微信封号, 是一直遗留的问题…</p>
+<p>而怎么保持机器人稳定在线, 不被微信封号, 是一直遗留的问题…<a id="more"></a></p>
 <p>网上一个稳定版本的IOS微信协议已经卖到2000! 所以无力研究了.</p>
 <p>相比之下, 微信公众号开发和小程序更加火爆.</p>
 </blockquote>
 <p>本篇将通过<strong>微信公众平台</strong>, <strong>微信开放平台</strong>, <strong>微信商户平台</strong>. 分为四篇来完成以下几个常用功能.</p>
-<a id="more"></a>
 <p><strong>第一篇: 微信网页授权</strong></p>
 <p><strong>第二篇: 微信支付</strong></p>
 <p><strong>第三篇: 网站应用微信登录</strong></p>
@@ -483,6 +485,9 @@ var _hmt = _hmt || [];
 <p>用了SDK, 就非常简单吧! 效果如图:</p>
 <p><a href="http://img.blog.csdn.net/20171105155246152?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMTY1MDI5MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" target="_blank" rel="noopener"><img src="http://img.blog.csdn.net/20171105155246152?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMTY1MDI5MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="微信图片_20171101193106"></a></p>
 
+            
+
+            <!--%- index && post.excerpt ? post.excerpt : post.content %-->
         </div>
 
         
@@ -509,10 +514,7 @@ var _hmt = _hmt || [];
         
         
 
-        
-        <div class="social-share"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
-<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        <!--% if (!index && has_config('share.type')) { %-->
         
     </div>
 </div>
@@ -636,7 +638,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        17
                     </p>
                 </div>
             </div>
@@ -823,8 +825,9 @@ var _hmt = _hmt || [];
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2019 i蝸居年華_谢谢谢&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                &copy; 2016—2019 i蝸居年華_谢谢谢&nbsp;
+                由<a href="http://hexo.io/" target="_blank">Hexo</a> 强力驱动
+                    <!--& <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>-->
                 
                 <br>
                 <span id="busuanzi_container_site_uv">
