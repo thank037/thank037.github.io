@@ -16,7 +16,9 @@
     }
 
     function adjustNavbar() {
-        const navbarWidth = $('.navbar-main .navbar-start').outerWidth() + $('.navbar-main .navbar-end').outerWidth();
+        // thank
+        // const navbarWidth = $('.navbar-main .navbar-start').outerWidth() + $('.navbar-main .navbar-end').outerWidth();
+        var navbarWidth = $('.navbar-main .navbar-start').outerWidth() + $('.navbar-main .navbar-end').outerWidth();
         if ($(document).outerWidth() < navbarWidth) {
             $('.navbar-main .navbar-menu').addClass('is-flex-start');
         } else {
