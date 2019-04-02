@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>润乾报表的使用 - i蝸居年華_谢谢谢_CODE_HOME</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    
+    <meta name="description" content="[TOC] 前言前段时间项目用到了报表开发, 选择润乾报表来做. 是款纯Java的报表开发工具, 采用设计和集成分离的方式, 开发过程也较为简单.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="润乾报表的使用">
+<meta property="og:url" content="https://xiefayang.com/2016/09/15/报表开发(润乾报表)/index.html">
+<meta property="og:site_name" content="i蝸居年華_谢谢谢_CODE_HOME">
+<meta property="og:description" content="[TOC] 前言前段时间项目用到了报表开发, 选择润乾报表来做. 是款纯Java的报表开发工具, 采用设计和集成分离的方式, 开发过程也较为简单.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://ww1.sinaimg.cn/large/007rAy9hly1g1n6yrp77bj311x0kf3yz.jpg">
+<meta property="og:image" content="https://ww1.sinaimg.cn/large/007rAy9hgy1g1n703xooyj30ev022jr6.jpg">
+<meta property="og:image" content="https://ww1.sinaimg.cn/large/007rAy9hly1g1n74bnhhwj305v030dfo.jpg">
+<meta property="og:updated_time" content="2019-04-01T08:11:44.540Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="润乾报表的使用">
+<meta name="twitter:description" content="[TOC] 前言前段时间项目用到了报表开发, 选择润乾报表来做. 是款纯Java的报表开发工具, 采用设计和集成分离的方式, 开发过程也较为简单.">
+<meta name="twitter:image" content="https://ww1.sinaimg.cn/large/007rAy9hly1g1n6yrp77bj311x0kf3yz.jpg">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?b59777544dd5d59ce94e191bac62427c";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<!--<body class="is-2-column">-->
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+
+
+                <!--<img src="/images/maotouying.svg" alt="蜗居年华" height="28">-->
+                <img src="/images/maotouying.svg" alt="润乾报表的使用" height="28">
+                <span style="font-size: 16px; display: inline-block; vertical-align: top; font-weight: 600;">i蝸居年華_谢谢谢</span>
+                <!--
+            % if (has_config('logo.text') && get_config('logo.text')) { 
+                <span style="font-size: 16px; display: inline-block; vertical-align: top; font-weight: 600;">%= get_config('logo.text') %</span>
+                %= get_config('logo.text') %
+            % } else { %
+                <img src="%- url_for(get_config('logo')) %" alt="%= get_config('title') %" height="28">
+            % } %
+                -->
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">首页</a>
+                
+                <a class="navbar-item" href="/archives">归档</a>
+                
+                <a class="navbar-item" href="/categories">分类</a>
+                
+                <a class="navbar-item" href="/tags">标签</a>
+                
+                <a class="navbar-item" href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="文章目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+
+
+                    <div class="box01">
+                        <input type="text" id="tip" placeholder="You Know, for Search~">
+                        <i class="search_icon"></i>
+                    </div>
+
+                    <!--<i class="fas fa-search"></i>-->
+
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">    <div class="card">
+
+        <!--update by thank: 文章详情页面不显示文章图片thumbnail-->
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+
+                <!--updated by thank: 列表页显示几年前, 文章页显示具体日期-->
+                
+                <span style="color: #7a7a7a !important;">写于2016-09-15 19:39:04&nbsp;&nbsp;&nbsp;</span>
+                
+
+                <!--<span style="color: #7a7a7a !important;">2016-09-15 19:39:04&nbsp;&nbsp;&nbsp;</span>-->
+                <!--<time class="level-item has-text-grey" datetime="2016-09-15T11:39:04.000Z">2016-09-15</time>-->
+                <!--<time class="level-item has-text-grey"  datetime="2019-12-12 22:22:22">2018-12-12 22:22:22</time>-->
+
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/工作/">工作</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    12 分钟 读完 (大约 1814 个字)
+                </span>
+                
+
+                <!--if (!index && (has_config('plugins.busuanzi') ? get_config('plugins.busuanzi') : false)) { -->
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                润乾报表的使用
+            
+        </h1>
+        <div class="content">
+            <p>[TOC]</p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>前段时间项目用到了报表开发, 选择润乾报表来做. 是款纯Java的报表开发工具, 采用设计和集成分离的方式, 开发过程也较为简单.</p>
+<a id="more"></a>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>设计时需要安装一个报表设计器, 设计过程类似于Excel中的表格设计. 而且支持html, excel, pdf等多种展现方式. 支持导出doc, excel, pdf和打印.</p>
+<p>内置一个数据库demo, 很多报表类型的例子, 和非常丰富的教学文档供我们学习, 而且内置Tomcat, 可供我们在设计过程中就在网页中发布报表来查看预览.</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装过程也较为简单, 不在讲述</p>
+<p>需要注意的是: </p>
+<ul>
+<li>Jdk: 安装中有个选择jdk版本的, 可以选择默认的1.5版本, 也可以自定义选择自己安装的jdk版本. 考虑到设计过程中JRE的兼容问题. 这里可以选择默认的版本, 因为里面的html展现最终是靠jsp来完成, 可以尽量避免设计中的问题.</li>
+</ul>
+<blockquote>
+<p>授权: 在设计器打开和在发布预览中设计器都需要授权, 授权lic文件都可以在网上找到.</p>
+</blockquote>
+<p>安装完成打开设计器如图:<br><img src="https://ww1.sinaimg.cn/large/007rAy9hly1g1n6yrp77bj311x0kf3yz.jpg" alt="这里写图片描述"></p>
+<h3 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h3><p>设计过程一般分为 绘制表图, 填写字段和表达式, 配置数据源, 定义数据源和参数, 集成项目等步骤.</p>
+<h4 id="1-绘制表图"><a href="#1-绘制表图" class="headerlink" title="1. 绘制表图"></a>1. 绘制表图</h4><p>为了使最后展现给用户的报表比较满意, 我们可能需要进行显示格式, 段落, 缩进, 字体的设置. 以及最后的打印, 分页都可以在报表属性中设置.</p>
+<h4 id="2-填写字段和表达式"><a href="#2-填写字段和表达式" class="headerlink" title="2. 填写字段和表达式"></a>2. 填写字段和表达式</h4><p>前两个过程较为简单, 我用程序提供的小例子. 效果如下:<br><img src="https://ww1.sinaimg.cn/large/007rAy9hgy1g1n703xooyj30ev022jr6.jpg" alt="这里写图片描述"></p>
+<p>在A2单元格中, 相当于一个游标, 来纵向扩展数据. 当然也支持横向扩展, 支持自己选择.</p>
+<p>在做分组报表和卡式报表时候, 有一个左/上主格和附属格(子格)的概念:</p>
+<ul>
+<li>主格: 原来的扩展单元格.</li>
+<li>附属格: 跟随主格扩展的单元格</li>
+<li>左主格: 只有纵向扩展才有的概念, 右边的单元格跟随左边的单元格进行纵向扩展, 这个左边被跟随的单元格就是左主格. 其他跟随的单元格叫做附属格.</li>
+<li>上主格: 和左主格概念类似, 只不过是在横向扩展中, 称下边附属格上面的即为上主格.</li>
+</ul>
+<h4 id="3-配置数据源"><a href="#3-配置数据源" class="headerlink" title="3. 配置数据源"></a>3. 配置数据源</h4><p>默认的数据源是润乾自带的demo数据库, 可供我们学习和参考. </p>
+<p>在实际设计中, 我们通常需要配置自己的数据源, 在新建中选择驱动, 填写数据源URL, 口令和密码即可.</p>
+<h4 id="4-定义数据源和参数"><a href="#4-定义数据源和参数" class="headerlink" title="4. 定义数据源和参数"></a>4. 定义数据源和参数</h4><p>这是比较关键的一步. 在配置中, 可以进行数据集的设置. 数据集支持SQL检索, 存储过程, 复杂SQL等多种类型.</p>
+<p>其中SQL检索支持可以检索到你的数据库, 可以用选择的方式进行数据库中 表, 列, 条件, 排序, 参数的设置.</p>
+<p>复杂SQL是比较常用的一种数据集创建方式. 直接在里面编写sql就好啦阿.</p>
+<p>如果传参的话, 有普通传参和宏传参两种方式.</p>
+<ul>
+<li>普通传参(数据集中):<br>定义: <code>select name, age form student where xxx = ?</code><br>参数: 参数表达式: id , 结果类型: 字符串.<br>配置-&gt;参数: 也要配置一下.</li>
+<li>宏传参:<br>定义: <code>select name, age from student where ${maceventid}</code><br>配置-&gt;宏定义: 也要配置一下.</li>
+</ul>
+<p>以上步骤做完, 点击发布报表, 会生成一个raq文件. 这个就是最终要集成到项目的文件.</p>
+<h4 id="5-集成项目"><a href="#5-集成项目" class="headerlink" title="5. 集成项目"></a>5. 集成项目</h4><p>关于报表在项目中的配置文件: <code>reportConfig.xml</code></p>
+<p>配置属性很多, 就不一一列举, 就举几个我配置过的属性:</p>
+<ul>
+<li>jdbc-ds-configs: 配置数据库信息</li>
+<li>maxCellNum: 在我集成过程中遇到一个错误, <code>cell num exceeds limit</code>. 意思是单元格数超过限制, 但是我的单元格数据量并不大, 为什么会出现这个错误. 查阅资料, 发现xml文件中有个设置:maxCellNum. 它是一个并发控制的选项, 取决于内存大小. 内存越大可以设置的越大, 不超过2000000.</li>
+</ul>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">config</span>&gt;</span></span><br><span class="line">     <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>maxCellNum<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span></span><br><span class="line">     <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>100000<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>再设计器设计过程中-&gt;报表属性中有个’报表格数’ 属性, 可以设置它来规定单元格数的限制. </p>
+<p>如果不设置. 默认会按defaultCellNum来. 如果没有defaultCellNum, 则会按20000来算, 我的xml中并没有设置它, 所以发生这个错误. </p>
+<blockquote>
+<p>但是在后面做项目过程中, 其他人没有设置居然没有报这个错. 也很无解</p>
+</blockquote>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">config</span>&gt;</span></span><br><span class="line">     <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>defaultCellNum<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span></span><br><span class="line">     <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>9999<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>关于它, 还有更加详细的并发控制.附上链接:<br><a href="http://wenku.baidu.com/link?url=J6iqHMVKd2FDgnBAFsWfdUoHkaEdLeqFlhp4nOB0AumdWQ72-EInuncQ71jpMvjLOcCsZbt7muhxH6kj2AdS3PuF6LFIlfdxnbYWyTb7qsq" target="_blank" rel="noopener">http://wenku.baidu.com/link?url=J6iqHMVKd2FDgnBAFsWfdUoHkaEdLeqFlhp4nOB0AumdWQ72-EInuncQ71jpMvjLOcCsZbt7muhxH6kj2AdS3PuF6LFIlfdxnbYWyTb7qsq</a></p>
+<p><strong>errorPage</strong></p>
+<p>这个属性来指定异常页, 可以先把myErrorPage.jsp拷贝到项目里. 用来查看异常信息. 比直接看错误页面好多了.</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">config</span>&gt;</span></span><br><span class="line">     <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>errorPage<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span></span><br><span class="line">     <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>/myErrorPage.jsp<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>除此之外, 还需要拷贝一些必要的文件.<br><img src="https://ww1.sinaimg.cn/large/007rAy9hly1g1n74bnhhwj305v030dfo.jpg" alt="这里写图片描述"><br>web.xml中report的配置</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">&lt;!-- report --&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">servlet</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">servlet-name</span>&gt;</span>SetContextServlet<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-name</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">servlet-class</span>&gt;</span>com.runqian.util.webutil.SetContextServlet<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-class</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">load-on-startup</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">load-on-startup</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;/<span class="hljs-name">servlet</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">servlet</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">servlet-name</span>&gt;</span>reportServlet<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-name</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">servlet-class</span>&gt;</span>com.runqian.report4.view.ReportServlet<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-class</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">init-param</span>&gt;</span></span><br><span class="line">			<span class="hljs-tag">&lt;<span class="hljs-name">param-name</span>&gt;</span>configFile<span class="hljs-tag">&lt;/<span class="hljs-name">param-name</span>&gt;</span></span><br><span class="line">			<span class="hljs-tag">&lt;<span class="hljs-name">param-value</span>&gt;</span>/WEB-INF/report/reportConfig.xml<span class="hljs-tag">&lt;/<span class="hljs-name">param-value</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;/<span class="hljs-name">init-param</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">load-on-startup</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">load-on-startup</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;/<span class="hljs-name">servlet</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">servlet-mapping</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">servlet-name</span>&gt;</span>reportServlet<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-name</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">url-pattern</span>&gt;</span>/reportServlet<span class="hljs-tag">&lt;/<span class="hljs-name">url-pattern</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;/<span class="hljs-name">servlet-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">jsp-config</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">taglib</span>&gt;</span></span><br><span class="line">			<span class="hljs-tag">&lt;<span class="hljs-name">taglib-uri</span>&gt;</span>/WEB-INF/report/runqianReport4.tld<span class="hljs-tag">&lt;/<span class="hljs-name">taglib-uri</span>&gt;</span></span><br><span class="line">			<span class="hljs-tag">&lt;<span class="hljs-name">taglib-location</span>&gt;</span>/WEB-INF/report/runqianReport4.tld<span class="hljs-tag">&lt;/<span class="hljs-name">taglib-location</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;/<span class="hljs-name">taglib</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;/<span class="hljs-name">jsp-config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>下面看看最主要的文件吧</p>
+<p>首先, 我们设计出来的raq文件怎么在html中展现呢?</p>
+<p>只需要在你的请求url上, 映射到showReport.jsp上, url上一般还附带着请求的传参, 和raq文件名.</p>
+<p>例如: <code>showReport.jsp?params=”+param+”&amp;reqName=”+raqName;</code></p>
+<p>在<code>showReport.jsp</code>中:</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">%@</span> <span class="hljs-attr">page</span> <span class="hljs-attr">contentType</span>=<span class="hljs-string">"text/html;charset=GBK"</span> %&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">%@</span> <span class="hljs-attr">taglib</span> <span class="hljs-attr">uri</span>=<span class="hljs-string">"/WEB-INF/runqianReport4.tld"</span> <span class="hljs-attr">prefix</span>=<span class="hljs-string">"report"</span> %&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">%@</span> <span class="hljs-attr">page</span> <span class="hljs-attr">import</span>=<span class="hljs-string">"java.io.*"</span>%&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">%@</span> <span class="hljs-attr">page</span> <span class="hljs-attr">import</span>=<span class="hljs-string">"java.util.*"</span>%&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">%@</span> <span class="hljs-attr">page</span> <span class="hljs-attr">import</span>=<span class="hljs-string">"com.runqian.report4.usermodel.Context"</span>%&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"css/style.css"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">topmargin</span>=<span class="hljs-string">0</span> <span class="hljs-attr">leftmargin</span>=<span class="hljs-string">0</span> <span class="hljs-attr">rightmargin</span>=<span class="hljs-string">0</span> <span class="hljs-attr">bottomMargin</span>=<span class="hljs-string">0</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"overflow:hidden;"</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">%</span></span></span><br><span class="line"><span class="hljs-tag">	<span class="hljs-attr">request.setCharacterEncoding</span>( "<span class="hljs-attr">GBK</span>" );</span></span><br><span class="line"><span class="hljs-tag">	<span class="hljs-attr">String</span> <span class="hljs-attr">report</span> = <span class="hljs-string">request.getParameter(</span> "<span class="hljs-attr">raq</span>" );</span></span><br><span class="line"><span class="hljs-tag">	<span class="hljs-attr">String</span> <span class="hljs-attr">reportFileHome</span>=<span class="hljs-string">Context.getInitCtx().getMainDir();</span></span></span><br><span class="line"><span class="hljs-tag">	<span class="hljs-attr">StringBuffer</span> <span class="hljs-attr">param</span>=<span class="hljs-string">new</span> <span class="hljs-attr">StringBuffer</span>();</span></span><br><span class="line"><span class="hljs-tag">	</span></span><br><span class="line"><span class="hljs-tag">	//保证报表名称的完整性</span></span><br><span class="line"><span class="hljs-tag">	<span class="hljs-attr">int</span> <span class="hljs-attr">iTmp</span> = <span class="hljs-string">0;</span></span></span><br><span class="line">	if( (iTmp = report.lastIndexOf(".raq")) &lt;= 0 )&#123;</span><br><span class="line">		report = report + ".raq";</span><br><span class="line">		iTmp = 0;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	Enumeration paramNames = request.getParameterNames();</span><br><span class="line">	if(paramNames!=null)&#123;</span><br><span class="line">		while(paramNames.hasMoreElements())&#123;</span><br><span class="line">			String paramName = (String) paramNames.nextElement();</span><br><span class="line">			String paramValue=request.getParameter(paramName);</span><br><span class="line">			if(paramValue!=null)&#123;</span><br><span class="line">				//把参数拼成name=value;name2=value2;.....的形式</span><br><span class="line">				param.append(paramName).append("=").append(paramValue).append(";");</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	//以下代码是检测这个报表是否有相应的参数模板</span><br><span class="line">	String paramFile = report.substring(0,iTmp)+"_arg.raq";</span><br><span class="line">	File f=new File(application.getRealPath(reportFileHome+ File.separator +paramFile));</span><br><span class="line"></span><br><span class="line">%&gt;</span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">jsp:include</span> <span class="hljs-attr">page</span>=<span class="hljs-string">"toolbar.jsp"</span> <span class="hljs-attr">flush</span>=<span class="hljs-string">"false"</span> /&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"overflow:auto;height:expression(parent.document.body.clientHeight-33+'px');"</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"rpt"</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"left"</span> &gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">%</span>	//如果参数模板存在，则显示参数模板</span></span><br><span class="line"><span class="hljs-tag">	<span class="hljs-attr">if</span>( <span class="hljs-attr">f.exists</span>() ) &#123;</span></span><br><span class="line"><span class="hljs-tag">	%&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"param_tbl"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"100%"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"100%"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">report:param</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"form1"</span> <span class="hljs-attr">paramFileName</span>=<span class="hljs-string">"&lt;%=paramFile%&gt;"</span></span></span><br><span class="line"><span class="hljs-tag">			<span class="hljs-attr">needSubmit</span>=<span class="hljs-string">"no"</span></span></span><br><span class="line"><span class="hljs-tag">			<span class="hljs-attr">params</span>=<span class="hljs-string">"&lt;%=param.toString()%&gt;"</span></span></span><br><span class="line"><span class="hljs-tag">			</span></span><br><span class="line"><span class="hljs-tag">		/&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"javascript:_submit( form1 )"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../images/search.gif"</span> <span class="hljs-attr">border</span>=<span class="hljs-string">no</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"vertical-align:middle"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">%</span> &#125;</span></span><br><span class="line"><span class="hljs-tag">%&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"center"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"100%"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"100%"</span> &gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span></span><br><span class="line">		<span class="hljs-tag">&lt;<span class="hljs-name">report:html</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"report1"</span> <span class="hljs-attr">reportFileName</span>=<span class="hljs-string">"&lt;%=report%&gt;"</span></span></span><br><span class="line"><span class="hljs-tag">			<span class="hljs-attr">funcBarLocation</span>=<span class="hljs-string">"top"</span></span></span><br><span class="line"><span class="hljs-tag">			<span class="hljs-attr">needPageMark</span>=<span class="hljs-string">"yes"</span></span></span><br><span class="line"><span class="hljs-tag">			<span class="hljs-attr">generateParamForm</span>=<span class="hljs-string">"no"</span></span></span><br><span class="line"><span class="hljs-tag">			<span class="hljs-attr">params</span>=<span class="hljs-string">"&lt;%=param.toString()%&gt;"</span></span></span><br><span class="line"><span class="hljs-tag">			<span class="hljs-attr">needPivot</span>=<span class="hljs-string">"yes"</span></span></span><br><span class="line"><span class="hljs-tag">			<span class="hljs-attr">pivotLabel</span>=<span class="hljs-string">""</span></span></span><br><span class="line"><span class="hljs-tag">			<span class="hljs-attr">exceptionPage</span>=<span class="hljs-string">"/reportJsp/myError2.jsp"</span></span></span><br><span class="line"><span class="hljs-tag">			<span class="hljs-attr">appletJarName</span>=<span class="hljs-string">"runqianReport4Applet.jar,dmGraphApplet.jar"</span></span></span><br><span class="line"><span class="hljs-tag">			<span class="hljs-attr">pageMarkLabel</span>=<span class="hljs-string">""</span></span></span><br><span class="line"><span class="hljs-tag">			<span class="hljs-attr">firstPageLabel</span>=<span class="hljs-string">""</span></span></span><br><span class="line"><span class="hljs-tag">            <span class="hljs-attr">prevPageLabel</span>=<span class="hljs-string">""</span></span></span><br><span class="line"><span class="hljs-tag">            <span class="hljs-attr">nextPageLabel</span>=<span class="hljs-string">""</span></span></span><br><span class="line"><span class="hljs-tag">            <span class="hljs-attr">lastPageLabel</span>=<span class="hljs-string">""</span></span></span><br><span class="line"><span class="hljs-tag"></span></span><br><span class="line"><span class="hljs-tag">		/&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">language</span>=<span class="hljs-string">"javascript"</span>&gt;</span><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-javascript">	<span class="hljs-comment">//设置分页显示值</span></span></span><br><span class="line"><span class="hljs-javascript">	<span class="hljs-built_in">document</span>.getElementById( <span class="hljs-string">"t_page_span"</span> ).innerHTML=report1_getTotalPage();</span></span><br><span class="line"><span class="hljs-javascript">	<span class="hljs-built_in">document</span>.getElementById( <span class="hljs-string">"c_page_span"</span> ).innerHTML=report1_getCurrPage();</span></span><br><span class="line"><span class="hljs-undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其中最关键的两个参数是:</p>
+<ul>
+<li>raqName: 接收的是raq的全文件名.</li>
+<li>param: 接收的是:<code>“eventid=” + eventid</code></li>
+</ul>
+<p>除此之外, 还需要把该jsp需要引入的jsp和静态资源加进来. 如<code>toolbar.jsp</code>, <code>style.css</code>等.</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>润乾报表是一个国产收费的报表工具, 工作中遇到了, 承认东西很强</p>
+<p>但是不喜欢, 所以不想做过多研究</p>
+
+        </div>
+
+        
+            <ul class="post-copyright">
+                <li><strong>本文标题：</strong><a href="https://xiefayang.com/2016/09/15/报表开发(润乾报表)/">润乾报表的使用</a></li>
+                <li><strong>本文作者：</strong><a href="https://xiefayang.com">i蝸居年華_谢谢谢</a></li>
+                <li><strong>本文链接：</strong><a href="https://xiefayang.com/2016/09/15/报表开发(润乾报表)/">https://xiefayang.com/2016/09/15/报表开发(润乾报表)/</a></li>
+                <li><strong>发布时间：</strong>2016-09-15</li>
+                <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+                </li>
+            </ul>
+        
+
+
+        
+        
+
+        
+        <div class="social-share"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">坚持原创技术分享，您的支持将鼓励我继续创作！</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechatpay.png" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2016/11/01/SpringBoot 初探/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Spring Boot 初探</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2016/09/14/Hexo+GitHub搭建独立博客/">
+                <span class="level-item">Hexo+GitHub搭建独立博客</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: false,
+        app_id: 'yVPV2fAKC1B90Xnh2JjuPEAb-gzGzoHsz',
+        app_key: '1i9DgF7j75Uq6OuM23etjjE9',
+        placeholder: 'Just go go, 支持Markdown~'
+    });
+</script>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="i蝸居年華_谢谢谢" style="border-radius: 50%">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        i蝸居年華_谢谢谢
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Just for fun
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Beijing, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        36
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        18
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        30
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/thank037" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+
+            <!--
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/thank037">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+           
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Facebook" href="http://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+           
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="http://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+           
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Dribbble" href="http://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+           
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+           
+            -->
+
+            <a class="level-item button is-white is-marginless" target="_blank" title="github" href="https://github.com/thank037" name>
+                <img src="/images/github.svg" style="width: 20px; height: 20px;">
+            </a>
+            <a class="level-item button is-white is-marginless" target="_blank" title="gitee" href="https://gitee.com/thank037" name>
+                <img src="/images/gitee.svg" style="width: 20px; height: 20px;">
+            </a>
+            <a class="level-item button is-white is-marginless" target="_blank" title="weibo" href="https://weibo.com/u/2139090054" name>
+                <img src="/images/weibo.svg" style="width: 20px; height: 20px;">
+            </a>
+            <a class="level-item button is-white is-marginless" target="_blank" title="email" href="mailto:coderthank@163.com" name>
+                <img src="/images/email.svg" style="width: 20px; height: 20px;">
+            </a>
+
+        </div>
+        
+    </div>
+</div>
+    
+        
+<!--<div class="card widget" id="toc">-->
+<div class="card widget column-left is-sticky" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                文章目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#前言">
+        <span class="has-mr-6">1</span>
+        <span>前言</span>
+        </a></li><li>
+        <a class="is-flex" href="#介绍">
+        <span class="has-mr-6">2</span>
+        <span>介绍</span>
+        </a></li><li>
+        <a class="is-flex" href="#安装">
+        <span class="has-mr-6">3</span>
+        <span>安装</span>
+        </a></li><li>
+        <a class="is-flex" href="#设计">
+        <span class="has-mr-6">4</span>
+        <span>设计</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1-绘制表图">
+        <span class="has-mr-6">4.1</span>
+        <span>1. 绘制表图</span>
+        </a></li><li>
+        <a class="is-flex" href="#2-填写字段和表达式">
+        <span class="has-mr-6">4.2</span>
+        <span>2. 填写字段和表达式</span>
+        </a></li><li>
+        <a class="is-flex" href="#3-配置数据源">
+        <span class="has-mr-6">4.3</span>
+        <span>3. 配置数据源</span>
+        </a></li><li>
+        <a class="is-flex" href="#4-定义数据源和参数">
+        <span class="has-mr-6">4.4</span>
+        <span>4. 定义数据源和参数</span>
+        </a></li><li>
+        <a class="is-flex" href="#5-集成项目">
+        <span class="has-mr-6">4.5</span>
+        <span>5. 集成项目</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#总结">
+        <span class="has-mr-6">5</span>
+        <span>总结</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen is-sticky">
+        
+        </div>
+    
+</div>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    i蝸居年華_谢谢谢
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 i蝸居年華_谢谢谢&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                您是第<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/thank037">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="全文搜索站内文章~">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+
+    <!--背景线条-->
+    <!--<script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-1" count="99" src="dist/canvas-nest.js"></script>-->
+    <!--<script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-1" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>-->
+</body>
+</html>

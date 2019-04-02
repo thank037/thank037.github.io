@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>Python写网络爬虫(一) - i蝸居年華_谢谢谢_CODE_HOME</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    
+    <meta name="description" content="[TOC] 关于Python学过C. 学过C++. 最后还是学Java来吃饭. 一直在Java的小世界里混迹. 有句话说: “Life is short, you need Python!” 翻译过来就是: 人生苦短, 我用Python">
+<meta name="keywords" content="Python,爬虫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python写网络爬虫(一)">
+<meta property="og:url" content="https://xiefayang.com/2016/03/31/Python写网络爬虫(一)/index.html">
+<meta property="og:site_name" content="i蝸居年華_谢谢谢_CODE_HOME">
+<meta property="og:description" content="[TOC] 关于Python学过C. 学过C++. 最后还是学Java来吃饭. 一直在Java的小世界里混迹. 有句话说: “Life is short, you need Python!” 翻译过来就是: 人生苦短, 我用Python">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://ww1.sinaimg.cn/large/007rAy9hly1g1n9vs7gklj30jm0jc47x.jpg">
+<meta property="og:image" content="https://ww1.sinaimg.cn/large/007rAy9hly1g1n9yke5xmj30kc0k2dy9.jpg">
+<meta property="og:updated_time" content="2019-04-01T09:46:27.059Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python写网络爬虫(一)">
+<meta name="twitter:description" content="[TOC] 关于Python学过C. 学过C++. 最后还是学Java来吃饭. 一直在Java的小世界里混迹. 有句话说: “Life is short, you need Python!” 翻译过来就是: 人生苦短, 我用Python">
+<meta name="twitter:image" content="https://ww1.sinaimg.cn/large/007rAy9hly1g1n9vs7gklj30jm0jc47x.jpg">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?b59777544dd5d59ce94e191bac62427c";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<!--<body class="is-2-column">-->
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+
+
+                <!--<img src="/images/maotouying.svg" alt="蜗居年华" height="28">-->
+                <img src="/images/maotouying.svg" alt="Python写网络爬虫(一)" height="28">
+                <span style="font-size: 16px; display: inline-block; vertical-align: top; font-weight: 600;">i蝸居年華_谢谢谢</span>
+                <!--
+            % if (has_config('logo.text') && get_config('logo.text')) { 
+                <span style="font-size: 16px; display: inline-block; vertical-align: top; font-weight: 600;">%= get_config('logo.text') %</span>
+                %= get_config('logo.text') %
+            % } else { %
+                <img src="%- url_for(get_config('logo')) %" alt="%= get_config('title') %" height="28">
+            % } %
+                -->
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">首页</a>
+                
+                <a class="navbar-item" href="/archives">归档</a>
+                
+                <a class="navbar-item" href="/categories">分类</a>
+                
+                <a class="navbar-item" href="/tags">标签</a>
+                
+                <a class="navbar-item" href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="文章目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+
+
+                    <div class="box01">
+                        <input type="text" id="tip" placeholder="You Know, for Search~">
+                        <i class="search_icon"></i>
+                    </div>
+
+                    <!--<i class="fas fa-search"></i>-->
+
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">    <div class="card">
+
+        <!--update by thank: 文章详情页面不显示文章图片thumbnail-->
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+
+                <!--updated by thank: 列表页显示几年前, 文章页显示具体日期-->
+                
+                <span style="color: #7a7a7a !important;">写于2016-03-31 12:39:04&nbsp;&nbsp;&nbsp;</span>
+                
+
+                <!--<span style="color: #7a7a7a !important;">2016-03-31 12:39:04&nbsp;&nbsp;&nbsp;</span>-->
+                <!--<time class="level-item has-text-grey" datetime="2016-03-31T04:39:04.000Z">2016-03-31</time>-->
+                <!--<time class="level-item has-text-grey"  datetime="2019-12-12 22:22:22">2018-12-12 22:22:22</time>-->
+
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Python/">Python</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    13 分钟 读完 (大约 1977 个字)
+                </span>
+                
+
+                <!--if (!index && (has_config('plugins.busuanzi') ? get_config('plugins.busuanzi') : false)) { -->
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Python写网络爬虫(一)
+            
+        </h1>
+        <div class="content">
+            <p>[TOC]</p>
+<h4 id="关于Python"><a href="#关于Python" class="headerlink" title="关于Python"></a>关于Python</h4><p>学过C. 学过C++. 最后还是学Java来吃饭.</p>
+<p>一直在Java的小世界里混迹.</p>
+<p>有句话说: “Life is short, you need Python!” 翻译过来就是: 人生苦短, 我用Python</p>
+<a id="more"></a>
+<p>究竟它有多么强大, 多么简洁?</p>
+<p>抱着好奇心, 趁在公司不忙的几天. 还是忍不住的小学了一下.(- - 其实学了还不到两天)</p>
+<p>随便用一个”HelloWorld”的例子</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//Java</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span></span>&#123;</span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;</span><br><span class="line">		String str = <span class="hljs-string">"HelloWorld!"</span>;</span><br><span class="line">		System.out.println(str);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># python</span></span><br><span class="line">str = <span class="hljs-string">'HelloWorld'</span></span><br><span class="line"><span class="hljs-keyword">print</span> str</span><br></pre></td></tr></table></figure>
+<p>乍一看Python确实很爽! 简明了断 节省时间</p>
+<p>至于效率. 我相信不管是任何语言, 作为开发者重要是的还是思维的精简!</p>
+<p>也有人说: “Python一时爽, 重构火葬场”</p>
+<p>但是Python的应用场景那么多. 根据自己的需要来选择, 相信那么多前辈没错.</p>
+<p>Python的确是一门值得学习的课程.</p>
+<h4 id="关于网络爬虫"><a href="#关于网络爬虫" class="headerlink" title="关于网络爬虫"></a>关于网络爬虫</h4><p>这个东西我也也不懂… 随便抓个解释, 淡淡的理解下</p>
+<p>网络爬虫（又被称为网页蜘蛛，网络机器人，在FOAF社区中间，更经常的称为网页追逐者），是一种按照一定的规则，自动地抓取万维网信息的程序或者脚本。</p>
+<p>另外一些不常使用的名字还有蚂蚁、自动索引、模拟程序或者蠕虫。</p>
+<p>真正的复杂而强大的爬虫有很多爬行算法和策略.</p>
+<p>我写的这个例子简直是简之又简.</p>
+<p>Python基础还没学完, 就迫不及待的想做个东西来看看</p>
+<p>于是就想到了写个网络爬虫. 来小小的练习一下</p>
+<p>我会经常看母校的学校新闻, 于是就试着爬学校新闻, 没事的时候拿出来看看</p>
+<p>因为学的甚少…这个爬虫的功能还是非常简单. 就是把学校官网中最新的新闻下载下来, 保存成网页. 想看多少页都可以.</p>
+<p>这里我就抓了最新的前4页新闻</p>
+<p>第一次写爬虫. 一个很简单的功能, 我把它分了3步:</p>
+<ul>
+<li>第一步: 先爬一条新闻, 把它下载保存!</li>
+<li>第二步: 把这一页的所有新闻都爬下来, 下载保存!</li>
+<li>第三步: 把x页的所有新闻爬下来, 下载保存!</li>
+</ul>
+<p>网页爬虫很重要的一点就是分析网页元素.</p>
+<h4 id="一-爬一个url"><a href="#一-爬一个url" class="headerlink" title="一: 爬一个url"></a>一: 爬一个url</h4><p>先爬一条新闻, 把它下载保存!</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#crawler: 甘肃农业大学新闻网板块的-&gt;学校新闻.</span></span><br><span class="line"><span class="hljs-comment">#爬这个页面的第一篇新闻</span></span><br><span class="line"><span class="hljs-comment">#http://news.gsau.edu.cn/tzgg1/xxxw33.htm</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">#coding:utf-8</span></span><br><span class="line"><span class="hljs-keyword">import</span> urllib</span><br><span class="line"></span><br><span class="line">str = <span class="hljs-string">'&lt;a class="c43092" href="../info/1037/30577.htm" target="_blank" title="双联行动水泉乡克那村工作组赴联系村开展精准扶贫相关工作"&gt;双联行动水泉乡克那村工作组赴联系村开展精准扶贫相关工作&lt;/a&gt;'</span></span><br><span class="line"></span><br><span class="line">hrefBeg = str.find(<span class="hljs-string">'href='</span>)</span><br><span class="line">hrefEnd = str.find(<span class="hljs-string">'.htm'</span>, hrefBeg)</span><br><span class="line">href = str[hrefBeg+<span class="hljs-number">6</span>: hrefEnd+<span class="hljs-number">4</span>]</span><br><span class="line"><span class="hljs-keyword">print</span> href</span><br><span class="line">href = href[<span class="hljs-number">3</span>:]</span><br><span class="line"><span class="hljs-keyword">print</span> href</span><br><span class="line"></span><br><span class="line">titleBeg = str.find(<span class="hljs-string">r'title='</span>)</span><br><span class="line">titleEnd = str.find(<span class="hljs-string">r'&gt;'</span>, titleBeg)</span><br><span class="line">title = str[titleBeg+<span class="hljs-number">7</span>: titleEnd<span class="hljs-number">-1</span>]</span><br><span class="line"><span class="hljs-keyword">print</span> title</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">'http://news.gsau.edu.cn/'</span> + href </span><br><span class="line"><span class="hljs-keyword">print</span> <span class="hljs-string">'url: '</span>+url</span><br><span class="line"></span><br><span class="line">content = urllib.urlopen(url).read()</span><br><span class="line"><span class="hljs-comment">#print content</span></span><br><span class="line"></span><br><span class="line">filename = title + <span class="hljs-string">'.html'</span></span><br><span class="line"><span class="hljs-comment">#将抓取的页面content写入filename保存本地目录中</span></span><br><span class="line">open(filename, <span class="hljs-string">'w'</span>).write(content)</span><br></pre></td></tr></table></figure>
+<p>这个里面不用分析太多网页元素. 就字符串拼阿截阿就好了.</p>
+<h4 id="二-爬取一个页面的新闻"><a href="#二-爬取一个页面的新闻" class="headerlink" title="二: 爬取一个页面的新闻"></a>二: 爬取一个页面的新闻</h4><p>爬取本页面的所有新闻, 每页23篇</p>
+<p>这个时候就要小小的分析下, 这23个url, 每个url怎么找?</p>
+<p><img src="https://ww1.sinaimg.cn/large/007rAy9hly1g1n9vs7gklj30jm0jc47x.jpg" alt="这里写图片描述"></p>
+<p>这里可以先锁定一个元素, 进行查找. 再就是注意每次find时的规律, 其实就是查找的顺序起始</p>
+<p>这里我把每个url都保存在一个数组中, 检索完成后, 对数组里的url进行下载.</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#crawler甘肃农业大学新闻网板块的-&gt;学校新闻.</span></span><br><span class="line"><span class="hljs-comment">#http://news.gsau.edu.cn/tzgg1/xxxw33.htm</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">#&lt;a class="c43092" href="../info/1037/30567.htm" target="_blank" title="双联行动水泉乡克那村工作组赴联系村开展精准扶贫相关工作"&gt;双联行动水泉乡克那村工作组赴联系村开展精准扶贫相关工作&lt;/a&gt;</span></span><br><span class="line"><span class="hljs-comment">#coding:utf-8</span></span><br><span class="line"><span class="hljs-keyword">import</span> urllib</span><br><span class="line"><span class="hljs-keyword">import</span> time</span><br><span class="line"><span class="hljs-keyword">import</span> stat, os</span><br><span class="line"></span><br><span class="line">pageSize = <span class="hljs-number">23</span></span><br><span class="line">articleList = urllib.urlopen(<span class="hljs-string">'http://news.gsau.edu.cn/tzgg1/xxxw33.htm'</span>).read()</span><br><span class="line">urlList = [<span class="hljs-string">' '</span>]*pageSize</span><br><span class="line"><span class="hljs-comment">#锁定class="c43092"</span></span><br><span class="line">hrefClass = articleList.find(<span class="hljs-string">'class="c43092"'</span>)</span><br><span class="line">hrefBeg = articleList.find(<span class="hljs-string">r'href='</span>, hrefClass)</span><br><span class="line">hrefEnd = articleList.find(<span class="hljs-string">r'.htm'</span>, hrefBeg)</span><br><span class="line">href=articleList[hrefBeg+<span class="hljs-number">6</span>: hrefEnd+<span class="hljs-number">4</span>][<span class="hljs-number">3</span>:]</span><br><span class="line"><span class="hljs-keyword">print</span> href</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">#url = 'http://news.gsau.edu.cn/' + href </span></span><br><span class="line"><span class="hljs-comment">#print 'url: '+url</span></span><br><span class="line"></span><br><span class="line">i = <span class="hljs-number">0</span></span><br><span class="line"><span class="hljs-keyword">while</span> href!=<span class="hljs-number">-1</span> <span class="hljs-keyword">and</span> i&lt;pageSize:</span><br><span class="line">    urlList[i] = <span class="hljs-string">'http://news.gsau.edu.cn/'</span> + href</span><br><span class="line">    </span><br><span class="line">    hrefClass = articleList.find(<span class="hljs-string">'class="c43092"'</span>, hrefEnd)</span><br><span class="line">    hrefBeg = articleList.find(<span class="hljs-string">r'href='</span>, hrefClass)</span><br><span class="line">    hrefEnd = articleList.find(<span class="hljs-string">r'.htm'</span>, hrefBeg)</span><br><span class="line">    href=articleList[hrefBeg+<span class="hljs-number">6</span>: hrefEnd+<span class="hljs-number">4</span>][<span class="hljs-number">3</span>:]</span><br><span class="line">    <span class="hljs-keyword">print</span> urlList[i]</span><br><span class="line">    i = i+<span class="hljs-number">1</span></span><br><span class="line"><span class="hljs-keyword">else</span>:</span><br><span class="line">    <span class="hljs-keyword">print</span> <span class="hljs-string">r'本页所有URL已爬完!!!'</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">#将本页每一篇新闻下载到本地(已新闻标题文件名存储)</span></span><br><span class="line"><span class="hljs-comment">#title: &lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;酒泉市市长都伟来校对接校地合作事宜-新闻网&lt;/TITLE&gt;</span></span><br><span class="line">j = <span class="hljs-number">0</span></span><br><span class="line"><span class="hljs-keyword">while</span> j&lt;pageSize:</span><br><span class="line">    content = urllib.urlopen(urlList[j]).read()</span><br><span class="line">    titleBeg = content.find(<span class="hljs-string">r'&lt;TITLE&gt;'</span>)</span><br><span class="line">    titleEnd = content.find(<span class="hljs-string">r'&lt;/TITLE&gt;'</span>, titleBeg)</span><br><span class="line">    title = content[titleBeg+<span class="hljs-number">7</span>: titleEnd]</span><br><span class="line">    <span class="hljs-keyword">print</span> title</span><br><span class="line">    <span class="hljs-keyword">print</span> urlList[j]+<span class="hljs-string">r'正在下载...'</span></span><br><span class="line">    time.sleep(<span class="hljs-number">1</span>)</span><br><span class="line">    open(<span class="hljs-string">r'GsauNews'</span> + os.path.sep + title.decode(<span class="hljs-string">'utf-8'</span>).encode(<span class="hljs-string">'gbk'</span>)+<span class="hljs-string">'.html'</span>, <span class="hljs-string">'w+'</span>).write(content)</span><br><span class="line">    j = j + <span class="hljs-number">1</span></span><br><span class="line"><span class="hljs-keyword">else</span>:</span><br><span class="line">    <span class="hljs-keyword">print</span> <span class="hljs-string">r'当页全部url下载完毕!'</span></span><br></pre></td></tr></table></figure>
+<h4 id="三-爬取所有新闻"><a href="#三-爬取所有新闻" class="headerlink" title="三: 爬取所有新闻"></a>三: 爬取所有新闻</h4><p>爬取N个页面的所有新闻</p>
+<p>这里要爬取N个页面, 首先就要分析你要爬取的是最新的, 而不能是固定的某几页</p>
+<p>所以要分析下分页的数据, 正好主页最下面也给出了分页数据, 直接用它!</p>
+<p>看下最近几页的url:</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://news.gsau.edu.cn/tzgg1/xxxw33.htm 第一页</span><br><span class="line">http://news.gsau.edu.cn/tzgg1/xxxw33/221.htm 第二页</span><br><span class="line">http://news.gsau.edu.cn/tzgg1/xxxw33/220.htm 第三页</span><br><span class="line">http://news.gsau.edu.cn/tzgg1/xxxw33/219.htm 第四页</span><br></pre></td></tr></table></figure>
+<p>对比分页数据, 很容易发现规律, 就是: <code>fenyeCount-pageNo+1</code></p>
+<p>这里很烦的一点是不知道为什么, 除了第一页以外的其他页, 都会有不是本页而是前一页的一部分网页数据会掺进来. 导致我找了半天</p>
+<p>做了很多判断才检索出来</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#crawler甘肃农业大学新闻网板块的-&gt;学校新闻.</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">#coding:utf-8</span></span><br><span class="line"><span class="hljs-keyword">import</span> urllib</span><br><span class="line"><span class="hljs-keyword">import</span> time</span><br><span class="line"><span class="hljs-keyword">import</span> stat, os</span><br><span class="line"></span><br><span class="line">pageCount = <span class="hljs-number">4</span></span><br><span class="line">pageSize = <span class="hljs-number">23</span></span><br><span class="line">pageNo = <span class="hljs-number">1</span></span><br><span class="line">urlList = [<span class="hljs-string">' '</span>]*pageSize*pageCount</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">#分析分页的网页元素</span></span><br><span class="line"><span class="hljs-comment">#&lt;td width="1%" align="left" id="fanye43092" nowrap=""&gt;共5084条  1/222 &lt;/td&gt;</span></span><br><span class="line">indexContent = urllib.urlopen(<span class="hljs-string">'http://news.gsau.edu.cn/tzgg1/xxxw33.htm'</span>).read()</span><br><span class="line">fenyeId = indexContent.find(<span class="hljs-string">'id="fanye43092"'</span>) <span class="hljs-comment">#这里锁定分页的id进行查找</span></span><br><span class="line">fenyeBeg = indexContent.find(<span class="hljs-string">'1/'</span>, fenyeId)</span><br><span class="line">fenyeEnd = indexContent.find(<span class="hljs-string">' '</span>, fenyeBeg)</span><br><span class="line">fenyeCount = int(indexContent[fenyeBeg+<span class="hljs-number">2</span>: fenyeEnd])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">i = <span class="hljs-number">0</span></span><br><span class="line"><span class="hljs-keyword">while</span> pageNo &lt;= pageCount:</span><br><span class="line">    <span class="hljs-keyword">if</span> pageNo==<span class="hljs-number">1</span>:</span><br><span class="line">        articleUrl = <span class="hljs-string">'http://news.gsau.edu.cn/tzgg1/xxxw33.htm'</span></span><br><span class="line">    <span class="hljs-keyword">else</span>:</span><br><span class="line">        articleUrl = <span class="hljs-string">'http://news.gsau.edu.cn/tzgg1/xxxw33/'</span>+ str(fenyeCount-pageNo+<span class="hljs-number">1</span>) + <span class="hljs-string">'.htm'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">print</span> <span class="hljs-string">r'--------共爬取'</span>+ str(pageCount) + <span class="hljs-string">'页  当前第'</span> + str(pageNo) + <span class="hljs-string">'页  URL:'</span> + articleUrl</span><br><span class="line"></span><br><span class="line">    articleList = urllib.urlopen(articleUrl).read()</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-keyword">while</span> i&lt;pageSize*pageNo:</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">if</span> pageNo == <span class="hljs-number">1</span>:</span><br><span class="line">            <span class="hljs-comment">#i = 0,23,46...时,从头找, 其余从上一个url结束位置开找</span></span><br><span class="line">            <span class="hljs-keyword">if</span> i == pageSize*(pageNo<span class="hljs-number">-1</span>):</span><br><span class="line">                hrefId = articleList.find(<span class="hljs-string">'id="line43092_0"'</span>)</span><br><span class="line">            <span class="hljs-keyword">else</span>:</span><br><span class="line">                hrefId = articleList.find(<span class="hljs-string">'class="c43092"'</span>, hrefEnd)   </span><br><span class="line">        <span class="hljs-keyword">else</span>:</span><br><span class="line">            <span class="hljs-keyword">if</span> i == pageSize*(pageNo<span class="hljs-number">-1</span>):</span><br><span class="line">                hrefId = articleList.find(<span class="hljs-string">'id="lineimg43092_16"'</span>)</span><br><span class="line">            <span class="hljs-keyword">else</span>:</span><br><span class="line">                hrefId = articleList.find(<span class="hljs-string">'class="c43092"'</span>, hrefEnd)</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        hrefBeg = articleList.find(<span class="hljs-string">r'href='</span>, hrefId)</span><br><span class="line">        hrefEnd = articleList.find(<span class="hljs-string">r'.htm'</span>, hrefBeg)</span><br><span class="line">        <span class="hljs-keyword">if</span> pageNo == <span class="hljs-number">1</span>:</span><br><span class="line">            href=articleList[hrefBeg+<span class="hljs-number">6</span>: hrefEnd+<span class="hljs-number">4</span>][<span class="hljs-number">3</span>:]</span><br><span class="line">        <span class="hljs-keyword">else</span>:</span><br><span class="line">            href=articleList[hrefBeg+<span class="hljs-number">6</span>: hrefEnd+<span class="hljs-number">4</span>][<span class="hljs-number">6</span>:]</span><br><span class="line">        urlList[i] = <span class="hljs-string">'http://news.gsau.edu.cn/'</span> + href</span><br><span class="line">    </span><br><span class="line">        <span class="hljs-keyword">print</span> urlList[i]</span><br><span class="line">        i = i+<span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">else</span>:</span><br><span class="line">        <span class="hljs-keyword">print</span> <span class="hljs-string">r'========第'</span>+str(pageNo)+<span class="hljs-string">'页url提取完成!!!'</span></span><br><span class="line">    </span><br><span class="line">    pageNo = pageNo + <span class="hljs-number">1</span></span><br><span class="line"><span class="hljs-keyword">print</span> <span class="hljs-string">r'============所有url提取完成!!!============'</span>+<span class="hljs-string">'\n'</span>*<span class="hljs-number">3</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">print</span> <span class="hljs-string">r'==========开始下载到本地==========='</span></span><br><span class="line">j = <span class="hljs-number">0</span></span><br><span class="line"><span class="hljs-keyword">while</span> j &lt; pageCount * pageSize:</span><br><span class="line">    content = urllib.urlopen(urlList[j]).read()</span><br><span class="line">    titleBeg = content.find(<span class="hljs-string">r'&lt;TITLE&gt;'</span>)</span><br><span class="line">    titleEnd = content.find(<span class="hljs-string">r'&lt;/TITLE&gt;'</span>, titleBeg)</span><br><span class="line">    title = content[titleBeg+<span class="hljs-number">7</span>: titleEnd]</span><br><span class="line">    <span class="hljs-keyword">print</span> title</span><br><span class="line">    <span class="hljs-keyword">print</span> urlList[j]+<span class="hljs-string">r'正在下载...'</span>+<span class="hljs-string">'\n'</span></span><br><span class="line">    time.sleep(<span class="hljs-number">1</span>)</span><br><span class="line">    open(<span class="hljs-string">r'GsauNews'</span> + os.path.sep + title.decode(<span class="hljs-string">'utf-8'</span>).encode(<span class="hljs-string">'gbk'</span>)+<span class="hljs-string">'.html'</span>, <span class="hljs-string">'w+'</span>).write(content)</span><br><span class="line">    j = j + <span class="hljs-number">1</span></span><br><span class="line"><span class="hljs-keyword">else</span>:</span><br><span class="line">    <span class="hljs-keyword">print</span> <span class="hljs-string">r'下载完成, 共下载'</span>+str(pageCount)+<span class="hljs-string">'页, '</span>+str(pageCount*pageSize)+<span class="hljs-string">'篇新闻'</span></span><br></pre></td></tr></table></figure>
+<p>这就爬完了…看下爬完的效果</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">==================== RESTART: D:\python\CSDNCrawler03.py ====================</span><br><span class="line">——–共爬取4页 当前第1页 URL:http://news.gsau.edu.cn/tzgg1/xxxw33.htm</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30596.htm</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30595.htm</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30593.htm</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30591.htm</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30584.htm</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30583.htm</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30580.htm</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30577.htm</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30574.htm</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30573.htm</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30571.htm</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30569.htm</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30567.htm</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30566.htm</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30565.htm</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30559.htm</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30558.htm</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30557.htm</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30555.htm</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30554.htm</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30546.htm</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30542.htm</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30540.htm</span><br><span class="line">========第1页url提取完成!!!</span><br><span class="line">——–共爬取4页 当前第2页 URL:http://news.gsau.edu.cn/tzgg1/xxxw33/221.htm</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30536.htm</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">==========开始下载到本地===========</span><br><span class="line">校长吴建民带队赴广河县开展精准扶贫和双联工作-新闻网</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30574.htm正在下载…</span><br><span class="line"></span><br><span class="line">动物医学院赴园子村开展精准扶贫相关工作-新闻网</span><br><span class="line">http://news.gsau.edu.cn/info/1037/30573.htm正在下载…</span><br><span class="line"></span><br><span class="line">……….</span><br></pre></td></tr></table></figure>
+<p><img src="https://ww1.sinaimg.cn/large/007rAy9hly1g1n9yke5xmj30kc0k2dy9.jpg" alt="这里写图片描述"></p>
+<p>一分多钟爬了90个网页.</p>
+<p>当然代码还可以优化好多.</p>
+<p>例如用正则, 匹配自己想要的内容,而不是像这样泛泛全保存.</p>
+<p>以后的学习中继续改进. 爬些更有意思的东西</p>
+<p>做这个例子只是为了看看, 初学Python能为我做什么.</p>
+
+        </div>
+
+        
+            <ul class="post-copyright">
+                <li><strong>本文标题：</strong><a href="https://xiefayang.com/2016/03/31/Python写网络爬虫(一)/">Python写网络爬虫(一)</a></li>
+                <li><strong>本文作者：</strong><a href="https://xiefayang.com">i蝸居年華_谢谢谢</a></li>
+                <li><strong>本文链接：</strong><a href="https://xiefayang.com/2016/03/31/Python写网络爬虫(一)/">https://xiefayang.com/2016/03/31/Python写网络爬虫(一)/</a></li>
+                <li><strong>发布时间：</strong>2016-03-31</li>
+                <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+                </li>
+            </ul>
+        
+
+
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Python/">Python</a>, <a class="has-link-grey -link" href="/tags/爬虫/">爬虫</a>
+                </div>
+            </div>
+        </div>
+        
+        
+
+        
+        <div class="social-share"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">坚持原创技术分享，您的支持将鼓励我继续创作！</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechatpay.png" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2016/09/04/easyui 下拉选择树(ComboTree) 的实现/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">easyui下拉选择树(ComboTree)</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2016/03/02/Git初探/">
+                <span class="level-item">Git初探</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: false,
+        app_id: 'yVPV2fAKC1B90Xnh2JjuPEAb-gzGzoHsz',
+        app_key: '1i9DgF7j75Uq6OuM23etjjE9',
+        placeholder: 'Just go go, 支持Markdown~'
+    });
+</script>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="i蝸居年華_谢谢谢" style="border-radius: 50%">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        i蝸居年華_谢谢谢
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Just for fun
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Beijing, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        36
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        18
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        30
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/thank037" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+
+            <!--
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/thank037">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+           
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Facebook" href="http://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+           
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="http://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+           
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Dribbble" href="http://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+           
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+           
+            -->
+
+            <a class="level-item button is-white is-marginless" target="_blank" title="github" href="https://github.com/thank037" name>
+                <img src="/images/github.svg" style="width: 20px; height: 20px;">
+            </a>
+            <a class="level-item button is-white is-marginless" target="_blank" title="gitee" href="https://gitee.com/thank037" name>
+                <img src="/images/gitee.svg" style="width: 20px; height: 20px;">
+            </a>
+            <a class="level-item button is-white is-marginless" target="_blank" title="weibo" href="https://weibo.com/u/2139090054" name>
+                <img src="/images/weibo.svg" style="width: 20px; height: 20px;">
+            </a>
+            <a class="level-item button is-white is-marginless" target="_blank" title="email" href="mailto:coderthank@163.com" name>
+                <img src="/images/email.svg" style="width: 20px; height: 20px;">
+            </a>
+
+        </div>
+        
+    </div>
+</div>
+    
+        
+<!--<div class="card widget" id="toc">-->
+<div class="card widget column-left is-sticky" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                文章目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#关于Python">
+        <span class="has-mr-6">1</span>
+        <span>关于Python</span>
+        </a></li><li>
+        <a class="is-flex" href="#关于网络爬虫">
+        <span class="has-mr-6">2</span>
+        <span>关于网络爬虫</span>
+        </a></li><li>
+        <a class="is-flex" href="#一-爬一个url">
+        <span class="has-mr-6">3</span>
+        <span>一: 爬一个url</span>
+        </a></li><li>
+        <a class="is-flex" href="#二-爬取一个页面的新闻">
+        <span class="has-mr-6">4</span>
+        <span>二: 爬取一个页面的新闻</span>
+        </a></li><li>
+        <a class="is-flex" href="#三-爬取所有新闻">
+        <span class="has-mr-6">5</span>
+        <span>三: 爬取所有新闻</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen is-sticky">
+        
+        </div>
+    
+</div>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    i蝸居年華_谢谢谢
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 i蝸居年華_谢谢谢&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                您是第<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/thank037">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="全文搜索站内文章~">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+
+    <!--背景线条-->
+    <!--<script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-1" count="99" src="dist/canvas-nest.js"></script>-->
+    <!--<script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-1" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>-->
+</body>
+</html>
